@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Lista TuDu!!</title>
+</head>
+<body>
+    <div th:if="${UserPage}">
+        <h2 th:text="'Tutaj jest/będzie ' + ${UserPage}" />
+        <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
+        <p>Click <a th:href="@{/TuDu}">here</a> to see a TuDu list.</p>
+    </div>
+    <div th:if="${TuDuPage}">
+        <h2 th:text="'Tutaj jest/będzie ' + ${TuDuPage}" />
+        <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
+        <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+    </div>
+    <div th:if="${HomePage}">
+        <h2 th:text="${HomePage}" />
+        <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+        <p>Click <a th:href="@{/TuDu}">here</a> to see a TuDu list.</p>
+    </div>
+
+</body>
+</html>
