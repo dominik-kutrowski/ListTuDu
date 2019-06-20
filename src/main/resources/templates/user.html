@@ -3,12 +3,12 @@
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>ListTuDu - Home</title>
+    <title>ListTuDu - User</title>
 </head>
-<body>>
-    <h1>Hello!</h1>
-    <h2 th:text="${HomePage}" />
-    <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+<body>
+    <h1>Hello User-ze!</h1>
+    <h2 th:text="'Tutaj jest/będzie ' + ${UserPage}" />
+    <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
     <p>Click <a th:href="@{/TuDu}">here</a> to see a TuDu list.</p>
 </body>
 </html>

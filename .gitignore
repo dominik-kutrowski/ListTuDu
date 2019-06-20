@@ -1,5 +1,3 @@
 .gradle
 .idea
 out
-build.gradle
-settings.gradle
