@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>ListTuDu - TuDu/list</title>
+</head>
+<body>
+<h1>Hello!</h1>
+<h2 th:text="'Tutaj jest/będzie ' + ${TuDuPage}" />
+    <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
+    <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+    <p>Click <a th:href="@{/TuDu}">here</a> to see a TuDu list.</p>
+    <br>
+    <p th:if="${NewTask == 'yes'}">New task was created correctly!!!</p>
+    <br>
+    <p>Tasks list below:</p>
+    <table>
+        <tr>
+            <td> Id: </td>
+            <td> Task name: </td>
+        </tr>
+        <tr data-th-each="task : ${TuDuTask}">
+            <td data-th-text="${task.id}+'.'"></td>
+            <td data-th-text="${task.name}"></td>
+        </tr>
+    </table>
+</body>
+</html>
