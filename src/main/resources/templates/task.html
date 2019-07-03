@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>ListTuDu - TuDu</title>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <h2 th:text="'Tutaj jest/będzie ' + ${TaskPage}" />
+    <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
+    <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+    <br>
+    <p>Tasks actions:</p>
+    <p>Click <a th:href="@{/task/list}">here</a> to show tasks list.</p>
+    <p>Click <a th:href="@{/task/add}">here</a> to add task.</p>
+</body>
+</html>
