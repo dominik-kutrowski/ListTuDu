@@ -3,7 +3,7 @@
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>ListTuDu - TuDu</title>
+    <title>ListTuDu - Task/add</title>
 </head>
 <body>
     <h1>Hello!</h1>
@@ -11,8 +11,17 @@
     <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
     <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
     <br>
-    <p>Tasks actions:</p>
-    <p>Click <a th:href="@{/task/list}">here</a> to show tasks list.</p>
-    <p>Click <a th:href="@{/task/add}">here</a> to add task.</p>
+    <p>Create task:</p>
+    <form action="#" th:action="@{/task/add}" th:object="${task}" method="post">
+        <table>
+            <tr>
+                <td>New Task Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Create Task!</button></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>

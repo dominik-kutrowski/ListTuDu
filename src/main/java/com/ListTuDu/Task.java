@@ -5,6 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Task {
@@ -12,6 +14,7 @@ public class Task {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
+    @NotEmpty
     private String name;
 
     public Long getId() {
