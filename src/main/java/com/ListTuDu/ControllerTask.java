@@ -8,14 +8,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Random;
 
 @Controller
-public class ControllerTask implements WebMvcConfigurer {
+public class ControllerTask  {
     @Autowired private TaskRepository taskRepository;
     //
     @PostMapping("task/add")
@@ -34,14 +31,15 @@ public class ControllerTask implements WebMvcConfigurer {
     //
     @GetMapping("task")
     public String TaskPage(Model modelTask) {
-        modelTask.addAttribute("TaskPage", "lista Task-ow!!");
         return "task/task";
     }
     //
     @GetMapping("task/list")
-    public String TaskPageList(Model modelTaskList, @RequestParam(value="TaskNew", defaultValue="No") String name) {
+    public String TaskPageList(Model modelTaskList, @RequestParam(value="TaskNew", defaultValue="No") String name)
+    {
         modelTaskList.addAttribute("TaskList", taskRepository.findAll());
         modelTaskList.addAttribute("TaskNew", name);
         return "task/list";
     }
+
 }
