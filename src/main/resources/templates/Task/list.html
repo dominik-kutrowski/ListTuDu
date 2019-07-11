@@ -15,16 +15,16 @@
     <p>Click <a th:href="@{/task/list}">here</a> to show tasks list.</p>
     <p>Click <a th:href="@{/task/add}">here</a> to add task.</p>
     <br>
-    <p th:if="${TaskNew == 'yes'}">New task was created correctly!!!</p>
-    <p th:if="${TaskNew == 'no'}"></p>
-    <p>Tasks list below:</p>
+    <p >Tasks list below:</p>
     <table>
         <tr>
             <td> Id: </td>
+            <td> Delete: </td>
             <td> Task name: </td>
         </tr>
         <tr data-th-each="task : ${TaskList}">
             <td data-th-text="${task.id}+'.'"></td>
+            <td><a th:href="@{/task}+'/delete/'+${task.id}"><img src="../icons/icon_bin2.jpg" width="26" align="middle"/></a></td>
             <td data-th-text="${task.name}"></td>
         </tr>
     </table>

@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -24,6 +26,15 @@ public class ControllerTask  {
         return "redirect:/task/list";
     }
     //
+    //
+    @GetMapping(value={"task/delete/{id}"})
+    public String HomePageID(Model modelHome, @PathVariable Long id) {
+        //modelHome.addAttribute("HomePage", id);
+        taskRepository.deleteById(id);
+        return "redirect:/task/list";
+    }
+    //
+    //
     @GetMapping("task/add")
     public String TaskPageAdd(Task task) {
         return "task/add";
@@ -35,10 +46,9 @@ public class ControllerTask  {
     }
     //
     @GetMapping("task/list")
-    public String TaskPageList(Model modelTaskList, @RequestParam(value="TaskNew", defaultValue="No") String name)
+    public String TaskPageList(Model modelTaskList)
     {
         modelTaskList.addAttribute("TaskList", taskRepository.findAll());
-        modelTaskList.addAttribute("TaskNew", name);
         return "task/list";
     }
 
