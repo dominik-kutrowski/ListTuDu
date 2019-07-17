@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+<head>
+    <meta charset="UTF-8">
+    <title>ListTuDu - Task/delete</title>
+</head>
+<body>
+<p>Delete task??</p>
+<table>
+    <tr>
+        <td>Id:</td>
+        <td>Task Name:</td>
+    </tr>
+    <tr>
+        <td th:text="${TaskId}"></td>
+        <td>konia z rzedem temu, kto tutaj nazwe task-a wstawi :)</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>
+            <form th:action="@{/task/delete/}+${TaskId}" method="post">
+                <button type="submit">Delete Task!</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/task/list}" method="get">
+                <button type="submit">Maybe later!</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

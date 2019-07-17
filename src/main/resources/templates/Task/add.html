@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>ListTuDu - Task/add</title>
 </head>
 <body>
-    <h1>Hello!</h1>
-    <h2>Tutaj jest info o Task-ach!</h2>
-    <p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
-    <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
-    <br>
-    <p>Create task:</p>
-    <form action="#" th:action="@{/task/add}" th:object="${task}" method="post">
-        <table>
-            <tr>
-                <td>New Task Name:</td>
-                <td><input type="text" th:field="*{name}" /></td>
-            </tr>
-            <tr>
-                <td><button type="submit">Create Task!</button></td>
-            </tr>
-        </table>
-    </form>
+<h1>Hello!</h1>
+<h2>Tutaj jest info o Task-ach!</h2>
+<p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
+<p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+<br>
+<p>Create task:</p>
+<form th:action="@{/task/add}" th:object="${task}" method="post">
+    <table>
+        <tr>
+            <td>New Task Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Create Task!</button>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
