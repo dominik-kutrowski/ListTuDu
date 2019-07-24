@@ -23,7 +23,7 @@ public class ControllerTask  {
     }
     @GetMapping(value={"task/delete/{id}"})
     public String TaskPageDeleteQuestion(Model modelTaskDelete, @PathVariable Long id) {
-        modelTaskDelete.addAttribute("TaskDelete", taskRepository.findById(id));
+        modelTaskDelete.addAttribute("TaskDelete", taskRepository.findById(id).get());
         modelTaskDelete.addAttribute("TaskId", id);
         return "task/delete";
     }
