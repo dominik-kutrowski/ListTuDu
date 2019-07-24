@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ControllerTask  {
@@ -22,7 +23,6 @@ public class ControllerTask  {
     }
     @GetMapping(value={"task/delete/{id}"})
     public String TaskPageDeleteQuestion(Model modelTaskDelete, @PathVariable Long id) {
-        //linijka ponizej albo nie dziala, albo nie wiem jak się do atrybutu TaskDelete dobrać w html :S
         modelTaskDelete.addAttribute("TaskDelete", taskRepository.findById(id));
         modelTaskDelete.addAttribute("TaskId", id);
         return "task/delete";

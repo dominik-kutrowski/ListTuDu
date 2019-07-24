@@ -21,11 +21,13 @@
             <td> Id: </td>
             <td> Delete: </td>
             <td> Task name: </td>
+            <td> Status: </td>
         </tr>
         <tr data-th-each="task : ${TaskList}">
             <td data-th-text="${task.id}+'.'"></td>
             <td><a th:href="@{/task}+'/delete/'+${task.id}"><img src="../icons/icon_bin2.jpg" width="26" align="middle"/></a></td>
             <td data-th-text="${task.name}"></td>
+            <td data-th-text="${task.status}"></td>
         </tr>
     </table>
 </body>

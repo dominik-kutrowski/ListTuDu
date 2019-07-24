@@ -18,6 +18,16 @@
             <td><input type="text" th:field="*{name}"/></td>
         </tr>
         <tr>
+            <td>Status:</td>
+            <td>
+                <select name="status">
+                    <option th:value="NotStarted" th:text="NotStarted"></option>
+                    <option th:value="InProgres" th:text="InProgres"></option>
+                    <option th:value="Completed" th:text="Completed"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <button type="submit">Create Task!</button>
             </td>
