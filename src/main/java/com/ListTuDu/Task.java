@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.validation.constraints.NotEmpty;
 
 import java.lang.String;
+import java.util.Date;
 
 @Entity
 public class Task {
@@ -18,6 +19,7 @@ public class Task {
     @NotEmpty
     private String name;
     private Status status;
+    //private Date dataDeadLine;
 
     public enum Status {
         DoNotUse("Enum to adjust with MySQL db!"),
