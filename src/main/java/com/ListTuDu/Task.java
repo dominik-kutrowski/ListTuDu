@@ -1,10 +1,12 @@
 package com.ListTuDu;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 import java.lang.String;
@@ -13,18 +15,19 @@ import java.util.Date;
 @Entity
 public class Task {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
     @NotEmpty
     private String name;
+    @Enumerated(EnumType.STRING)
     private Status status;
     //private Date dataDeadLine;
 
     public enum Status {
         DoNotUse("Enum to adjust with MySQL db!"),
         NotStarted("Not Started"),
-        InProgres("In Progress"),
+        InProgress("In Progress"),
         Completed("Completed");
 
         private String displayStatus;
