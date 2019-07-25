@@ -18,11 +18,10 @@ public class Task {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
-    @NotEmpty
-    private String name;
     @Enumerated(EnumType.STRING)
     private Status status;
-    //private Date dataDeadLine;
+    @NotEmpty
+    private String name;
 
     public enum Status {
         DoNotUse("Enum to adjust with MySQL db!"),
@@ -62,5 +61,4 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
-
 }
