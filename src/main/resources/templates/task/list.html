@@ -22,12 +22,14 @@
             <td> Delete: </td>
             <td> Task name: </td>
             <td> Status: </td>
+            <td> Dead line: </td>
         </tr>
         <tr data-th-each="task : ${TaskList}">
             <td data-th-text="${task.id}+'.'"></td>
             <td><a th:href="@{/task}+'/delete/'+${task.id}"><img src="../icons/icon_bin2.jpg" width="26" align="middle"/></a></td>
             <td data-th-text="${task.name}"></td>
             <td data-th-text="${task.status.status}"></td>
+            <td th:text="${task.dateDeadLine} ? ${task.dateDeadLine} : 'No DeadLine info!!'"></td>
         </tr>
     </table>
 </body>

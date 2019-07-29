@@ -1,15 +1,13 @@
 package com.ListTuDu;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 import java.lang.String;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,6 +20,10 @@ public class Task {
     private Status status;
     @NotEmpty
     private String name;
+    @Column(name = "date_dead_line")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateDeadLine;
+
 
     public enum Status {
         DoNotUse("Enum to adjust with MySQL db!"),
@@ -42,6 +44,7 @@ public class Task {
             return displayStatus;
         };
     }
+
     public Long getId() {
         return id;
     }
@@ -50,6 +53,9 @@ public class Task {
     }
     public Status getStatus() {
         return status;
+    }
+    public LocalDate getDateDeadLine() {
+        return dateDeadLine;
     }
 
     public void setId(Long id) {
@@ -60,5 +66,8 @@ public class Task {
     }
     public void setStatus(Status status) {
         this.status = status;
+    }
+    public void setDateDeadLine(LocalDate dateDeadLine) {
+        this.dateDeadLine = dateDeadLine;
     }
 }
