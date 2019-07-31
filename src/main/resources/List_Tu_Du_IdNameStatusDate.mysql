@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: list_tu_du
+-- Host: localhost    Database: List_Tu_Du
 -- ------------------------------------------------------
 -- Server version	8.0.16
 
@@ -59,7 +59,7 @@ CREATE TABLE `task` (
 
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
-INSERT INTO `task` VALUES (1,'zadanie no. 1','NotStarted','2019-07-30'),(2,'task no. 2','NotStarted','2019-07-30'),(3,'first real task!','NotStarted','2019-07-20'),(4,'second real task!','NotStarted','2019-07-30'),(5,'first task from boss!','NotStarted','2020-02-02'),(6,'second task from boss!','NotStarted','2020-02-02'),(7,'third task from boss!','NotStarted','2020-02-02'),(9,'pierwszy durny task!','NotStarted','2020-02-02'),(10,'pierwszy durny task nowego szefa!!','NotStarted','2020-02-02'),(11,'zwalniam sie!!','NotStarted','2020-02-02'),(35,'test task no. 4','NotStarted','2020-02-02'),(38,'test task no. 7','NotStarted','2020-02-02'),(39,'test task no. 8','NotStarted','2020-02-02'),(40,'NewTask albo i nie!','NotStarted','2020-02-02'),(48,'test99','NotStarted','2020-02-02'),(49,'test102','NotStarted','2020-02-02'),(54,'task test 13','NotStarted','2020-02-02'),(56,'task test In Progress','NotStarted','2020-02-02'),(62,'test Completed','NotStarted','2020-02-02'),(78,'tak 1 ns','NotStarted','2020-02-02'),(89,'test102','Completed','2020-02-02'),(91,'dom','InProgress','2020-02-02'),(93,'test1','InProgress',NULL);
+INSERT INTO `task` VALUES (1,'zadanie no. 1','NotStarted','2019-08-02'),(2,'task no. 2','NotStarted','2019-07-30'),(3,'first real task!','NotStarted','2019-07-20'),(4,'second real task!','NotStarted','2019-07-30'),(5,'first task from boss!','NotStarted','2019-08-02'),(6,'second task from boss!','NotStarted','2020-02-02'),(7,'third task from boss!','NotStarted','2020-02-02'),(9,'pierwszy durny task!','NotStarted','2020-02-02'),(10,'pierwszy durny task nowego szefa!!','NotStarted','2020-02-02'),(11,'zwalniam sie!!','NotStarted','2020-02-02'),(54,'task test 13','NotStarted','2019-08-03'),(56,'task test In Progress','NotStarted',NULL),(91,'dom','InProgress',NULL),(93,'test1','InProgress','2019-08-02');
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -72,4 +72,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-29 21:22:59
+-- Dump completed on 2019-07-31 22:58:09
