@@ -1,14 +1,10 @@
 package com.ListTuDu;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-
 import java.lang.String;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Task {

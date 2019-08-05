@@ -2,7 +2,6 @@
 package com.ListTuDu;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +15,11 @@ import javax.validation.Valid;
 public class ControllerTask  {
     @Autowired private TaskRepository taskRepository;
     //
+    @GetMapping("task")
+    public String TaskPage(Model modelTask) {
+        return "task/task";
+    }
+    //
     @PostMapping(value={"task/delete/{id}"})
     public String TaskPageDelete(@PathVariable Long id){
         taskRepository.deleteById(id);
@@ -23,15 +27,15 @@ public class ControllerTask  {
     }
     @GetMapping(value={"task/delete/{id}"})
     public String TaskPageDeleteQuestion(Model modelTaskDelete, @PathVariable Long id) {
-        modelTaskDelete.addAttribute("TaskDelete", taskRepository.findById(id).get());
-        modelTaskDelete.addAttribute("TaskId", id);
-        return "task/delete";
-    }
-    //
-    //
-    @GetMapping("task")
-    public String TaskPage(Model modelTask) {
-        return "task/task";
+        try {
+            modelTaskDelete.addAttribute("TaskDelete", taskRepository.findById(id).get());
+            modelTaskDelete.addAttribute("TaskId", id);
+            return "task/delete";
+        }
+        catch(Exception e) {
+            //return "task/error";
+            return "redirect:/task/error";
+        }
     }
     //
     @PostMapping("task/add")
@@ -52,5 +56,9 @@ public class ControllerTask  {
         modelTaskList.addAttribute("TaskList", taskRepository.findAll());
         return "task/list";
     }
-
+    //
+    @GetMapping("task/error")
+    public String TaskPageError(Model modelTaskError){
+        return "task/error";
+    }
 }
