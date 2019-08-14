@@ -48,8 +48,9 @@ CREATE TABLE `task` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `status` enum('NotStarted','InProgress','Completed') NOT NULL,
+  `date_dead_line` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,8 +59,57 @@ CREATE TABLE `task` (
 
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
-INSERT INTO `task` VALUES (1,'zadanie no. 1','NotStarted'),(2,'task no. 2','NotStarted'),(3,'first real task!','NotStarted'),(4,'second real task!','NotStarted'),(5,'first task from boss!','NotStarted'),(6,'second task from boss!','NotStarted'),(7,'third task from boss!','NotStarted'),(8,'nowy boss potrzebny!','NotStarted'),(9,'pierwszy durny task!','NotStarted'),(10,'pierwszy durny task nowego szefa!!','NotStarted'),(11,'zwalniam sie!!','NotStarted'),(35,'test task no. 4','NotStarted'),(38,'test task no. 7','NotStarted'),(39,'test task no. 8','NotStarted'),(40,'NewTask albo i nie!','NotStarted'),(48,'test99','NotStarted'),(49,'test102','NotStarted'),(50,'task test 11','NotStarted'),(51,'task test 12','NotStarted'),(52,'task test 12','NotStarted'),(54,'task test 13','NotStarted'),(55,'task test 14','NotStarted'),(56,'task test In Progress','NotStarted'),(57,'task test Completed','NotStarted'),(58,'task test check1','NotStarted'),(59,'task test check2','NotStarted'),(60,'Completed','NotStarted'),(61,'completed','NotStarted'),(62,'test Completed','NotStarted'),(63,'test Completed/NotStarted','NotStarted'),(64,'test Completed/NotStarted','NotStarted'),(65,'test Completed/NotStarted1','NotStarted'),(66,'task test completed1','NotStarted'),(67,'task test in progres1','NotStarted'),(68,'task test in not started','NotStarted'),(69,'task test in progres2','NotStarted'),(70,'task test in completed2','NotStarted'),(71,'task test in completed3','NotStarted'),(72,'task test in progres3','NotStarted'),(73,'task testnot started','NotStarted'),(74,'task test Not Start','NotStarted'),(75,'test1','NotStarted'),(76,'test2','NotStarted'),(77,'tak 1 ip','NotStarted'),(78,'tak 1 ns','NotStarted'),(79,'tak 1 cp','NotStarted'),(80,'tak 2 cp','NotStarted'),(81,'tak 3 cp','NotStarted'),(82,'test1','NotStarted'),(83,'test 321','NotStarted'),(85,'task test 1','NotStarted'),(86,'task test completed 2','Completed'),(87,'test102','InProgress');
+INSERT INTO `task` VALUES (1,'zadanie no. 1','NotStarted','2019-08-02'),(2,'task no. 2','NotStarted','2019-07-30'),(3,'first real task!','NotStarted','2019-07-20'),(4,'second real task!','NotStarted','2019-07-30'),(5,'first task from boss!','NotStarted','2019-08-02'),(6,'second task from boss!','NotStarted','2020-02-02'),(7,'third task from boss!','NotStarted','2020-02-02'),(9,'pierwszy durny task!','NotStarted','2020-02-02'),(10,'pierwszy durny task nowego szefa!!','NotStarted','2020-02-02'),(11,'zwalniam sie!!','NotStarted','2020-02-02'),(56,'task test In Progress','NotStarted',NULL),(91,'dom','InProgress',NULL),(93,'test1','InProgress','2019-08-02');
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `pass` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_login`
+--
+
+DROP TABLE IF EXISTS `user_login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user_login` (
+  `user_login_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_login_email` varchar(256) NOT NULL,
+  `user_login_pass` varchar(64) NOT NULL,
+  PRIMARY KEY (`user_login_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_login`
+--
+
+LOCK TABLES `user_login` WRITE;
+/*!40000 ALTER TABLE `user_login` DISABLE KEYS */;
+INSERT INTO `user_login` VALUES (1,'m@m.com','62c66a7a5dd70c3146618063c344e531e6d4b59e379808443ce962b3abd63c5a'),(2,'d@d.com','18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4');
+/*!40000 ALTER TABLE `user_login` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -71,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-24 23:02:42
+-- Dump completed on 2019-08-14 23:32:57

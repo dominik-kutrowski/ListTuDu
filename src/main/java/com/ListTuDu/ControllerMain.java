@@ -12,11 +12,5 @@ public class ControllerMain {
         modelHome.addAttribute("HomePage", "Herzlich Willkommen!!");
         return "home";
     }
-    //
-    @GetMapping("user")
-    public String UserPage(Model modelUser) {
-        modelUser.addAttribute("UserPage", "info o Tobie!!");
-        return "user";
-    }
 }
 
