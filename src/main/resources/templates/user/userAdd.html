@@ -14,11 +14,16 @@
     <table>
         <tr>
             <td>User Name (email only):</td>
-            <td><input type="text" th:field="*{email}"/></td>
+            <td><input type="text" th:field="*{email}" value="example@example.com"/></td>
         </tr>
         <tr>
             <td>Pass:</td>
-            <td><input type="password" th:field="*{pass}"/></td>
+            <td><input type="password" th:field="*{pass}" value="example"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Create User!</button>
+            </td>
         </tr>
     </table>
 </form>

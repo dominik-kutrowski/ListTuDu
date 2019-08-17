@@ -38,17 +38,17 @@ public class ControllerTask  {
         }
     }
     //
-    @PostMapping("task/add")
+    @PostMapping("task/taskAdd")
     public String TaskPageCreate(@Valid Task task, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
-            return "redirect:/task/add";
+            return "redirect:/task/taskAdd";
         }
         taskRepository.save(task);
         return "redirect:/task/list";
     }
-    @GetMapping("task/add")
+    @GetMapping("task/taskAdd")
     public String TaskPageAdd(Task task) {
-        return "task/add";
+        return "task/taskAdd";
     }
     //
     @GetMapping("task/list")

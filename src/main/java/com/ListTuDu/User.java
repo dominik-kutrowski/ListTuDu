@@ -1,21 +1,22 @@
 package com.ListTuDu;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="user_login")
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "user_login_id", unique = true)
+    private Long user_login_id;
+    @Column(name = "user_login_email")
     private String email;
+    @Column(name = "user_login_pass")
     private String pass;
 
 
     public Long getId() {
-        return id;
+        return user_login_id;
     }
     public String getEmail() {
         return email;
@@ -24,8 +25,8 @@ public class User {
         return pass;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long user_login_id) {
+        this.user_login_id = user_login_id;
     }
     public void setEmail(String email) {
         this.email = email;
