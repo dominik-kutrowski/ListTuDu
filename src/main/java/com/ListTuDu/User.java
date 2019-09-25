@@ -1,6 +1,7 @@
 package com.ListTuDu;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name="user_login")
@@ -10,8 +11,13 @@ public class User {
     @Column(name = "user_login_id", unique = true)
     private Long user_login_id;
     @Column(name = "user_login_email")
+    @NotNull
+    @Size(min=2, max=30)
+    @Email
     private String email;
     @Column(name = "user_login_pass")
+    @NotEmpty
+    @Size(min=6, max=32)
     private String pass;
 
 
