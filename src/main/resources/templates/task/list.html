@@ -4,15 +4,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>ListTuDu - Task/list</title>
-    <link rel="stylesheet" type="text/css" href="/resources/static/css/task.css">
-    <style>
-        tr:nth-child(even) {
-            background-color: #f4f4f4;
-        }
-    </style>
-    <script th:inline="javascript">
-            var todaydate = new Date();
-    </script>
+    <link rel="stylesheet" type="text/css" href="/css/task.css">
 </head>
 <body>
 <h1>Hello!</h1>
@@ -35,29 +27,19 @@
     </tr>
     <tr data-th-each="task : ${TaskList}">
         <td data-th-text="${task.id}+'.'"></td>
-        <td><a th:href="@{/task}+'/delete/'+${task.id}"><img src="../icons/icon_bin2.jpg" width="26"
-                                                             align="middle"/></a></td>
+        <td>
+            <a th:href="@{/task}+'/delete/'+${task.id}">
+                <img src="../icons/icon_bin2.jpg" width="26" align="middle"/></a>
+        </td>
         <td data-th-text="${task.name}"></td>
         <td data-th-text="${task.status.status}"></td>
-        <td><span th:id="row" th:text="${task.dateDeadLine} ? ${task.dateDeadLine} : '????-??-??'"></span></td>
-        <script th:inline="javascript">
-                taskid = [[${task.id}]];
-                if([[${task.dateDeadLine}]]!=null){
-                    var taskdate = new Date([[${task.dateDeadLine}]]);
-                    var daysToDeadline = (taskdate.getTime() - todaydate.getTime())/(1000 * 60 * 60 * 24);
-                    var htmlElement = document.getElementById("row");
-                    htmlElement.id = taskid;
-                    if(daysToDeadline<=0) htmlElement.style.color = "red";
-                    if(daysToDeadline>0 && daysToDeadline<=5) htmlElement.style.color = "green";
-                    if(daysToDeadline>5) htmlElement.style.color = "black";
-                }
-                else{
-                    var daysToDeadline = "noDate";
-                    var htmlElement = document.getElementById("row");
-                    htmlElement.id = taskid;
-                    htmlElement.style.color = "grey";
-                }
-        </script>
+
+        <td th:switch="${task.overdueDeadLineColor(task.dateDeadLine)}">
+            <div th:case="'Red'" class="redHolder" th:text="${task.dateDeadLine}"></div>
+            <div th:case="'Green'" class="greenHolder" th:text="${task.dateDeadLine}"></div>
+            <div th:case="'Black'" class="blueHolder" th:text="${task.dateDeadLine}"></div>
+            <div th:case="'????-??-??'" class="grayHolder">????-??-??</div>
+        </td>
     </tr>
 </table>
 </body>

@@ -14,19 +14,19 @@ import javax.validation.Valid;
 @Controller
 public class ControllerTask  {
     @Autowired private TaskRepository taskRepository;
-    //
+
     @GetMapping("task")
-    public String TaskPage(Model modelTask) {
+    public String taskPage(Model modelTask) {
         return "task/task";
     }
-    //
+
     @PostMapping(value={"task/delete/{id}"})
-    public String TaskPageDelete(@PathVariable Long id){
+    public String taskPageDelete(@PathVariable Long id){
         taskRepository.deleteById(id);
         return "redirect:/task/list";
     }
     @GetMapping(value={"task/delete/{id}"})
-    public String TaskPageDeleteQuestion(Model modelTaskDelete, @PathVariable Long id) {
+    public String taskPageDeleteQuestion(Model modelTaskDelete, @PathVariable Long id) {
         try {
             modelTaskDelete.addAttribute("TaskDelete", taskRepository.findById(id).get());
             modelTaskDelete.addAttribute("TaskId", id);
@@ -37,28 +37,29 @@ public class ControllerTask  {
             return "redirect:/task/error";
         }
     }
-    //
-    @PostMapping("task/taskAdd")
-    public String TaskPageCreate(@Valid Task task, BindingResult bindingResult){
+
+    @PostMapping(value="task/taskAdd")
+    public String taskPageCreate(@Valid Task task, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return "redirect:/task/taskAdd";
         }
         taskRepository.save(task);
+        task.overdueDeadLineColor(task.getDateDeadLine());
         return "redirect:/task/list";
     }
     @GetMapping("task/taskAdd")
-    public String TaskPageAdd(Task task) {
+    public String taskPageAdd(Task task) {
         return "task/taskAdd";
     }
-    //
+
     @GetMapping("task/list")
-    public String TaskPageList(Model modelTaskList){
+    public String taskPageList(Model modelTaskList){
         modelTaskList.addAttribute("TaskList", taskRepository.findAll());
         return "task/list";
     }
-    //
+
     @GetMapping("task/error")
-    public String TaskPageError(Model modelTaskError){
+    public String taskPageError(Model modelTaskError){
         return "task/error";
     }
 }
