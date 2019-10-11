@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>ListTuDu - Home</title>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <h2 th:text="${HomePage}" />
+    <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+    <p>Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
+</body>
+</html>

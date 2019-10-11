@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ListTuDu - Login</title>
+</head>
+
+<body>
+<h1 align="center">Welcome on ListTuDu!</h1>
+<form name="login" action="login" method="POST" align="center">
+    Login<br>
+    <input type="text" name="email" placeholder="Email"/> <br/>
+    Password<br>
+    <input type="password" name="password" placeholder="Password"/>
+    <br><br>
+    <button name="Submit" value="Login" type="Submit">Login</button>
+</form>
+<h3 align="center">or <a th:href="@{/registration}">create</a> your account.</h3>
+
+
+<form name="test" align="center">
+    <p>Click <a th:href="@{/home}">here</a> to see a home page (temporary option).</p>
+</form>
+</body>
+</html>
