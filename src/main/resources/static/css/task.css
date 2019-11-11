@@ -1,5 +1,17 @@
 
 
+.blueHolder {
+    color:blue;
+}
+.grayHolder {
+    color:grey;
+}
+.greenHolder {
+    color:green;
+}
+.redHolder {
+    color:red;
+}
 
 #grayHolder {
     color:grey;

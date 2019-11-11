@@ -15,9 +15,8 @@ public class ControllerUser {
 
     @Autowired
     private UserRepository userRepository;
-
     @GetMapping("user")
-    public String UserPage(Model modelUser) {
+    public String userPage(Model modelUser) {
         modelUser.addAttribute("UserPage", "info o Tobie!!");
         return "user/user";
     }

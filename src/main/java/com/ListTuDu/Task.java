@@ -1,15 +1,19 @@
 package com.ListTuDu;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.lang.String;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+import static java.time.LocalDate.now;
 
 @Entity
 public class Task {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
     @Enumerated(EnumType.STRING)
@@ -33,12 +37,13 @@ public class Task {
             this.displayStatus = displayStatus;
         }
 
-        public void setStatus(String displayStatus){
+        public void setStatus(String displayStatus) {
             this.displayStatus = displayStatus;
-        };
-        public String getStatus(){
+        }
+
+        public String getStatus() {
             return displayStatus;
-        };
+        }
     }
 
     public Long getId() {
@@ -53,7 +58,6 @@ public class Task {
     public LocalDate getDateDeadLine() {
         return dateDeadLine;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -65,5 +69,20 @@ public class Task {
     }
     public void setDateDeadLine(LocalDate dateDeadLine) {
         this.dateDeadLine = dateDeadLine;
+    }
+
+    public String overdueDeadLineColor(LocalDate inputDate) {
+        String Color = "Black";
+        if (inputDate == null) {
+            Color = "????-??-??";
+            return Color;
+        } else {
+            LocalDate localDateNow = LocalDate.now();
+            Long diffDays = ChronoUnit.DAYS.between(localDateNow, inputDate);
+            if (diffDays <= 0) Color = "Red";
+            if (diffDays > 0) Color = "Green";
+            if (diffDays > 5) Color = "Black";
+            return Color;
+        }
     }
 }
