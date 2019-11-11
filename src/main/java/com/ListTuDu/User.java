@@ -11,14 +11,17 @@ public class User {
     @Column(name = "user_login_id", unique = true)
     private Long user_login_id;
     @Column(name = "user_login_email")
-    @NotNull
+    @NotEmpty
     @Size(min=2, max=30)
     @Email
     private String email;
     @Column(name = "user_login_pass")
     @NotEmpty
-    @Size(min=6, max=32)
+    @Size(min=1, max=64)
     private String pass;
+    @Column(name = "user_login_role")
+    @NotEmpty
+    private String role;
 
 
     public Long getId() {
@@ -30,7 +33,13 @@ public class User {
     public String getPass() {
         return pass;
     }
+    public String getRole() {
+        return role;
+    }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
     public void setId(Long user_login_id) {
         this.user_login_id = user_login_id;
     }

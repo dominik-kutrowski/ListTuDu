@@ -6,21 +6,22 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 
 import javax.validation.Valid;
 
 @Controller
 public class ControllerUser {
     //@Autowired private TaskRepository taskRepository;
-    @Autowired private UserRepository userRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("user")
     public String UserPage(Model modelUser) {
         modelUser.addAttribute("UserPage", "info o Tobie!!");
         return "user/user";
     }
-    //
+
     @PostMapping("user/userAdd")
     public String userPageCreate(@Valid User user, BindingResult bindingResults) {
         if(bindingResults.hasErrors()){

@@ -8,27 +8,27 @@
     <title>ListTuDu - Registration</title>
     <link rel="stylesheet" type="text/css" href="css/registration.css">
 </head>
-<body>
+<body align="center">
 <h1 align="center">Welcome on ListTuDu!</h1>
 <h3 align="center">Register Yourself</h3><br>
 
-<form action="#" th:action="@{/registration2}" th:object="${user}" method="post" align="center">
+<form action="#" th:action="@{/registration}" method="post" align="center">
     Login:<br>
-    <input type="text" th:field="*{email}" placeholder="Email"/><br>
+    <input type="text" name="email" placeholder="Email"/><br>
     <label class="registrationPage" th:text="${registrationLoginError} ? ${registrationLoginError}"></label><br>
     <br>
     Password:<br>
-    <input type="password" th:field="*{pass}" placeholder="Password"/><br>
+    <input type="password" name="pass" placeholder="Password"/><br>
     <label class="registrationPage" th:text="${registrationPasswordError} ? ${registrationPasswordError}"></label><br>
     <br>
     Repeat Password:<br>
-    <input type="password" name="repeatPassword" placeholder="Repeat Password"/> <br>
+    <input type="password" name="repeatPass" placeholder="Repeat Password"/> <br>
     <label class="registrationPage" th:text="${registrationPasswordRepeatError} ? ${registrationPasswordRepeatError}"></label><br>
     <br>
     <button type="submit">Register Me</button>
 </form>
 
 <br><br>
-<p align="center">Click <a th:href="@{/home}">here</a> to see a home page (temporary option).</p>
+<p align="center">Click <a th:href="@{/home}">here</a> to back a home page.</p>
 </body>
 </html>

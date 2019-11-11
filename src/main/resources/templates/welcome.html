@@ -7,13 +7,10 @@
 </head>
 <body align="center">
 <h1 align="center">Welcome on ListTuDu!</h1>
-<h2 align="center">You created new user successfully!</h2>
-<h2 th:text="${registrationLoginName}"/>
+<h3 th:text="${loginUserName}"/>
 <br>
-<br>
-<p align="center">Click <a th:href="@{/home}">here</a> to see a home page.</p>
 <p align="center">Click <a th:href="@{/user}">here</a> to see a user info.</p>
 <p align="center">Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
-<p align="center">Click <a th:href="@{/login}">here</a> to see a login page.</p>
+<p align="center">Click <a th:href="@{/logout}">here</a> to see a logout page.</p>
 </body>
 </html>
