@@ -25,12 +25,6 @@ public class ControllerLogin {
 
     @GetMapping()
     public String loginPage() {
-        return "home";
+        return "login";
     }
-
-    @GetMapping("/logout")
-    public String logoutPage() {
-        return "logout";
-    }
-
 }

@@ -3,7 +3,8 @@
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>ListTuDu - Home</title>
+    <title>ListTuDu - Welcome</title>
+    <link rel="stylesheet" type="text/css" href="css/logInOut.css">
 </head>
 <body align="center">
 <h1 align="center">Welcome on ListTuDu!</h1>
@@ -11,6 +12,6 @@
 <br>
 <p align="center">Click <a th:href="@{/user}">here</a> to see a user info.</p>
 <p align="center">Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
-<p align="center">Click <a th:href="@{/logout}">here</a> to see a logout page.</p>
+<p align="center">Click <a th:href="@{/logout}">here</a> to logout.</p>
 </body>
 </html>

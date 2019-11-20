@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -39,18 +40,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/home").permitAll()
-                .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
-                .antMatchers("/task").authenticated()
-                .antMatchers("/task/*").authenticated()
-                .antMatchers("/welcome").authenticated()
-                .antMatchers("/user").authenticated()
-                .antMatchers("/user/*").authenticated()
-                .and()
-                .formLogin().permitAll()
-                .and()
+                .anyRequest().authenticated()
+               .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+               .and()
                 .formLogin().defaultSuccessUrl("/welcome")
-                .and()
-                .logout().logoutSuccessUrl("/");
+               .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+                .permitAll();
     }
 }

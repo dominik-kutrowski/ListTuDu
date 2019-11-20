@@ -7,22 +7,20 @@
 </head>
 
 <body align="center">
-<h1 align="center">Welcome on ListTuDu!</h1>
+<h1 align="center">Welcome on ListTuDu!!!!</h1>
 <h3 align="center">Login Yourself</h3><br>
 
-<form th:action="@{/loginCheck}" th:object="${user}" method="post" align="center">
+<form th:action="@{/login}" method="post" align="center">
     Login:<br>
-    <input type="text" th:field="*{email}" placeholder="Email"/><br>
-    <label class="registrationPage" th:text="${loginError} ? ${loginError}"></label><br>
+    <input type="text" name="username"/><br>
     <br>
     Password:<br>
-    <input type="password" th:field="*{pass}" placeholder="Password"/><br>
-    <label class="registrationPage" th:text="${loginPasswordError} ? ${loginPasswordError}"></label><br>
+    <input type="password" name="password"/><br>
     <br>
     <button type="submit">Login Me</button>
 </form>
 
-<h3 align="center">or <a th:href="@{/registration}">create</a> your account.</h3>
-<p align="center">Click <a th:href="@{/home}">here</a> to see a home page (temporary option).</p>
+<p align="center">or <a th:href="@{/registration}">create</a> your account.</p>
+<p align="center">Click <a th:href="@{/home}">here</a> to see a home page.</p>
 </body>
 </html>

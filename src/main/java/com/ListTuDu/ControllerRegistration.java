@@ -29,8 +29,6 @@ public class ControllerRegistration {
     @Autowired
     SecurityConfiguration securityConfiguration;
 
-    public ControllerRegistration() {
-    }
 
     @GetMapping("/registration")
     public String registrationGet() {

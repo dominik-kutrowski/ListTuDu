@@ -19,9 +19,6 @@ public class ControllerMain {
 
     @GetMapping(value = {"welcome"})
     public String welcomePage() {
-//    public String welcomePage(Authentication authentication) {
-//        authentication.getCredentials();
-//        principal.getName();
         return "welcome";
     }
 }
