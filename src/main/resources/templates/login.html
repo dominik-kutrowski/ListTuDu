@@ -7,10 +7,9 @@
 </head>
 
 <body align="center">
-<h1 align="center">Welcome on ListTuDu!!!!</h1>
-<h3 align="center">Login Yourself</h3><br>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
 
-<form th:action="@{/login}" method="post" align="center">
+<form th:action="@{/login}" method="post">
     Login:<br>
     <input type="text" name="username"/><br>
     <br>
@@ -20,7 +19,7 @@
     <button type="submit">Login Me</button>
 </form>
 
-<p align="center">or <a th:href="@{/registration}">create</a> your account.</p>
-<p align="center">Click <a th:href="@{/home}">here</a> to see a home page.</p>
+<p>or <a th:href="@{/registration}">create</a> your account.</p>
+<p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>ListTuDu - Home</title>
 </head>
 <body align="center">
-<h1 align="center">Welcome on ListTuDu!!</h1>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
 <h3 th:text="${HomePage}"/>
 <br>
 <p>Click <a th:href="@{/login}">here</a> to see a login page.</p>

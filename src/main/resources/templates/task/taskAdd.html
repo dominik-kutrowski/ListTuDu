@@ -6,13 +6,11 @@
     <title>ListTuDu - Task/add</title>
 </head>
 <body>
-<h1>Hello!</h1>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
+<br>
+<div th:replace="fragment/general.html :: div.userLogged"></div>
+<br>
 <h3>Tutaj jest info o Task-ach!</h3>
-<br>
-<p>Click <a th:href="@{/welcome}">here</a> to see a welcome page.</p>
-<p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
-<p>Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
-<br>
 <p>Create task:</p>
 <form th:action="@{/task/taskAdd}" th:object="${task}" method="post">
     <table>

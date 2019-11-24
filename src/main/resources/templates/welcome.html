@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ListTuDu - Welcome</title>
     <link rel="stylesheet" type="text/css" href="css/logInOut.css">
 </head>
 <body align="center">
-<h1 align="center">Welcome on ListTuDu!</h1>
-<h3 th:text="${loginUserName}"/>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
 <br>
-<p align="center">Click <a th:href="@{/user}">here</a> to see a user info.</p>
-<p align="center">Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
-<p align="center">Click <a th:href="@{/logout}">here</a> to logout.</p>
+<div th:replace="fragment/general.html :: div.userLogged"></div>
 </body>
 </html>

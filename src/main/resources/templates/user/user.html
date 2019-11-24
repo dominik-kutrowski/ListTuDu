@@ -6,12 +6,11 @@
     <title>ListTuDu - User</title>
 </head>
 <body align="center">
-    <h1>Hello User-ze!</h1>
-    <h3 th:text="'Tutaj jest/będzie ' + ${UserPage}" />
+    <div th:replace="fragment/general.html :: div.userWelcome"></div>
     <br>
-    <p>Click <a th:href="@{/welcome}">here</a> to see a welcome page.</p>
-    <p>Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
+    <div th:replace="fragment/general.html :: div.userLogged"></div>
     <br>
+    <p>User actions:</p>
     <p>Click here to edit user.</p>
     <p>Click here to see user's tasks.</p>
     <p>Click here to delete user.</p>

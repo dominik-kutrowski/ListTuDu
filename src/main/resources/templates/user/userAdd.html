@@ -7,11 +7,11 @@
     <title>ListTuDu - User/add</title>
 </head>
 <body align="center">
-<h1>Hello!</h1>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
 <br>
-<p>Click <a th:href="@{/welcome}">here</a> to see a welcome page.</p>
-<p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
-<p>Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
+<div th:replace="fragment/general.html :: div.userLogged"></div>
+<br>
+<br>
 <p>Add user:</p>
 <form th:action="@{/user/userAdd}" th:object="${user}" method="post">
     <table>

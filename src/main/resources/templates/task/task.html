@@ -6,11 +6,9 @@
     <title>ListTuDu - Task</title>
 </head>
 <body align="center">
-<h1>Hello!</h1>
-<h3>Tutaj jest info o Task-ach!</h3>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
 <br>
-<p>Click <a th:href="@{/welcome}">here</a> to see a welcome page.</p>
-<p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+<div th:replace="fragment/general.html :: div.userLogged"></div>
 <br>
 <p>Tasks actions:</p>
 <p>Click <a th:href="@{/task/list}">here</a> to show tasks list.</p>

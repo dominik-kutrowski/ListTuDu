@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/registration.css">
 </head>
 <body align="center">
-<h1 align="center">Welcome on ListTuDu!</h1>
-<h3 align="center">Register Yourself</h3><br>
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
 
 <form action="#" th:action="@{/registration}" method="post" align="center">
     Login:<br>
@@ -28,7 +27,7 @@
     <button type="submit">Register Me</button>
 </form>
 
-<br><br>
-<p align="center">Click <a th:href="@{/home}">here</a> to back a home page.</p>
+<p >or <a th:href="@{/login}">login</a> yourself.</p>
+<p >Click <a th:href="@{/home}">here</a> to back a home page.</p>
 </body>
 </html>

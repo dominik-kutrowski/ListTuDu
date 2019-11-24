@@ -7,8 +7,10 @@
     <title>ListTuDu - Task/delete</title>
 </head>
 <body align="center">
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
+<br>
 <p>Delete task??</p>
-<table>
+<table align="center">
     <tr>
         <td>Id:</td>
         <td>Task Name:</td>
@@ -18,7 +20,7 @@
         <td th:text="${TaskDelete.name}"></td>
     </tr>
 </table>
-<table>
+<table align="center">
     <tr>
         <td>
             <form th:action="@{/task/delete/}+${TaskId}" method="post">
