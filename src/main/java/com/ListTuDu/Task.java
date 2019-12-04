@@ -23,6 +23,7 @@ public class Task {
     @Column(name = "date_dead_line")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateDeadLine;
+    private String createdBy;
 
 
     public enum Status {
@@ -58,6 +59,9 @@ public class Task {
     public LocalDate getDateDeadLine() {
         return dateDeadLine;
     }
+    public String getCreatedBy() {
+        return createdBy;
+    }
     public void setId(Long id) {
         this.id = id;
     }
@@ -69,6 +73,9 @@ public class Task {
     }
     public void setDateDeadLine(LocalDate dateDeadLine) {
         this.dateDeadLine = dateDeadLine;
+    }
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String overdueDeadLineColor(LocalDate inputDate) {

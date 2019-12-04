@@ -2,18 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8"/>
 </head>
 <body>
 
-<div class="userWelcome">
-    <h1 align="center">Welcome on ListTuDu!</h1>
+<div class="userWelcome" align="center">
+    <h1 >Welcome on ListTuDu!</h1>
     <h3 sec:authorize="isAuthenticated()">login: <span sec:authentication="name"></span></h3>
     <h3 sec:authorize="isAnonymous()">Login or Register Yourself</h3>
 </div>
-<div class="userLogged">
+<div class="userLogged" align="center">
     <p>Click <a th:href="@{/welcome}">here</a> to see a welcome page.</p>
     <p>Click <a th:href="@{/logout}">here</a> to logout.</p>
     <p>Click <a th:href="@{/task}">here</a> to see a tasks list.</p>

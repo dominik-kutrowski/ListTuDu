@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+    <meta charset="UTF-8">
     <title>ListTuDu - Task/add</title>
+    <link rel="stylesheet" type="text/css" href="/css/task.css">
 </head>
 <body>
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
+<div align="center" th:replace="fragment/general.html :: div.userWelcome"></div>
 <br>
-<div th:replace="fragment/general.html :: div.userLogged"></div>
+<div align="center" th:replace="fragment/general.html :: div.userLogged"></div>
 <br>
-<h3>Tutaj jest info o Task-ach!</h3>
-<p>Create task:</p>
+<div align="center">
+    <h3>Tutaj jest info o Task-ach!</h3>
+    <p>Create task:</p>
+</div>
 <form th:action="@{/task/taskAdd}" th:object="${task}" method="post">
-    <table>
+    <table align="center">
         <tr>
             <td>New Task Name:</td>
             <td><input type="text" th:field="*{name}"/></td>
         </tr>
         <tr>
             <td>Dead line:</td>
-            <td><input type="text" th:field="*{dateDeadLine}"/>(format: yyyy-MM-dd)</td>
+            <td><input type="text" th:field="*{dateDeadLine}" placeholder="format: yyyy-MM-dd"/></td>
         </tr>
         <tr>
             <td>Status:</td>

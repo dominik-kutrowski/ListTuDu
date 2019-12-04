@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ListTuDu - Task/list</title>
     <link rel="stylesheet" type="text/css" href="/css/task.css">
@@ -20,9 +20,10 @@
     <tr>
         <th> Id:</th>
         <th> Delete:</th>
-        <th> Task name:</th>
+        <th> Name:</th>
         <th> Status:</th>
         <th> Deadline:</th>
+        <th> Created by::</th>
     </tr>
     <tr data-th-each="task : ${TaskList}">
         <td data-th-text="${task.id}+'.'"></td>
@@ -39,6 +40,7 @@
             <div th:case="'Black'" class="blueHolder" th:text="${task.dateDeadLine}"></div>
             <div th:case="'????-??-??'" class="grayHolder">????-??-??</div>
         </td>
+        <td data-th-text="${task.createdBy}"></td>
     </tr>
 </table>
 </body>
