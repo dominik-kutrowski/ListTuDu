@@ -28,7 +28,7 @@ public class ControllerRegistration {
     private PasswordEncoder passwordEncoder;
     @Autowired
     SecurityConfiguration securityConfiguration;
-
+    private Authentication authentication;
 
     @GetMapping("/registration")
     public String registrationGet() {
@@ -49,23 +49,19 @@ public class ControllerRegistration {
                     "*login error");
             return "registration";
         }
-
         if (repeatPass.equals(pass) != true) {
             registrationInfo.addAttribute(
                     "registrationPasswordRepeatError",
                     "*passwords not equal");
             return "registration";
         }
-
         User user = new User();
         user.setEmail(email);
         user.setPass(passwordEncoder.encode(pass));
         user.setRole("USER");
-
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> violations = validator.validate(user);
-
         if (violations.size() > 0) {
             registrationInfo.addAttribute("registrationLoginError", "*login error");
             registrationInfo.addAttribute("registrationPasswordError", "*or password error");

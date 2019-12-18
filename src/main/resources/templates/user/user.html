@@ -7,12 +7,13 @@
 </head>
 <body align="center">
     <div th:replace="fragment/general.html :: div.userWelcome"></div>
+    <label class="userPage" th:text="${UserPassChanged}"></label><br>
     <br>
     <div th:replace="fragment/general.html :: div.userLogged"></div>
     <br>
     <p>User actions:</p>
     <p>Click here to edit user.</p>
-    <p>Click here to see user's tasks.</p>
+    <p>Click <a th:href="@{/user/userChangePass}">here</a> to change user pass.</p>
     <p>Click here to delete user.</p>
 </body>
 </html>

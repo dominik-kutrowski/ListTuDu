@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>ListTuDu - User/Change Pass</title>
+</head>
+<body align="center">
+<div th:replace="fragment/general.html :: div.userWelcome"></div>
+<br>
+<div th:replace="fragment/general.html :: div.userLogged"></div>
+<br>
+<br>
+<form th:action="@{/user/userChangePass}" method="post">
+    <table align="center">
+        <tr>
+            <td align="right">Old Pass:</td>
+            <td><input type="password" name="oldPass" placeholder="type here ..." maxlength="64" size="16"/></td>
+            <td align="left"><label th:text="${userOldPasswordError}"></label></td>
+        </tr>
+        <tr>
+            <td align="right">New Pass:</td>
+            <td><input type="password" name="newPass" placeholder="and here ..." maxlength="64" size="16"/></td>
+            <td align="left"><label th:text="${userNewPasswordError}"></label></td>
+        </tr>
+        <tr>
+            <td align="right">Repeat New Pass:</td>
+            <td><input type="password" name="repeatNewPass" placeholder="and also here ..." maxlength="64" size="16"/>
+            </td>
+            <td align="left"><label th:text="${userPasswordRepeatError}"></label></td>
+        </tr>
+    </table>
+    <br>
+    <button type="submit">Change Pass!</button>
+</form>
+</body>
+</html>
