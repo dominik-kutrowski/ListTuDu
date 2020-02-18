@@ -75,7 +75,7 @@ CREATE TABLE `user_login` (
   `user_login_id` int(10) NOT NULL AUTO_INCREMENT,
   `user_login_email` varchar(256) NOT NULL,
   `user_login_pass` varchar(64) NOT NULL,
-  `user_login_role` varchar(64) NOT NULL,
+  `user_login_role` enum('User','SuperUser','Root') NOT NULL,
   PRIMARY KEY (`user_login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

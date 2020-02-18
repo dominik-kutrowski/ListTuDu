@@ -25,6 +25,9 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
     compile 'commons-codec:commons-codec:1.8'
 
     compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")

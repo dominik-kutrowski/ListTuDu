@@ -1,21 +1,19 @@
 package com.ListTuDu;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import javax.xml.bind.ValidationException;
 import java.util.Set;
 
 
@@ -42,7 +40,7 @@ public class ControllerRegistration {
             @RequestParam("email") String email,
             @RequestParam("pass") String pass,
             @RequestParam("repeatPass") String repeatPass
-    ) {
+    ) throws ValidationException {
         if (userRepository.findByEmail(email) != null) {
             registrationInfo.addAttribute(
                     "registrationLoginError",
@@ -58,7 +56,7 @@ public class ControllerRegistration {
         User user = new User();
         user.setEmail(email);
         user.setPass(passwordEncoder.encode(pass));
-        user.setRole("USER");
+        user.setRole(User.Role.User);
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> violations = validator.validate(user);
