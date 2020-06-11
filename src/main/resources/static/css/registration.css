@@ -1,5 +1,11 @@
-
-.registrationPage {
-    color:red;
-    font-size: 8 px;
+body
+{
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.registrationPage{
+    color: red;
+    font-size: 12px;
 }

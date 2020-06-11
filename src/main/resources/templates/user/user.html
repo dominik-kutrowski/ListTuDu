@@ -4,16 +4,32 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ListTuDu - User</title>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\user.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\task.css" rel="stylesheet"
+          type="text/css"/>
 </head>
-<body align="center">
-    <div th:replace="fragment/general.html :: div.userWelcome"></div>
-    <label class="userPage" th:text="${UserPassChanged}"></label><br>
-    <br>
-    <div th:replace="fragment/general.html :: div.userLogged"></div>
-    <br>
-    <p>User actions:</p>
-    <p>Click here to edit user.</p>
-    <p>Click <a th:href="@{/user/userChangePass}">here</a> to change user pass.</p>
-    <p>Click here to delete user.</p>
+<body>
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTask"></div>
+        <div th:replace="fragment/general.html :: div.tileUserAll"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        Welcome on User page!
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

@@ -5,44 +5,60 @@
 <head>
     <meta charset="UTF-8">
     <title>ListTuDu - Task/add</title>
-    <link rel="stylesheet" type="text/css" href="/css/task.css">
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\user.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\task.css" rel="stylesheet"
+          type="text/css"/>
 </head>
 <body>
-<div align="center" th:replace="fragment/general.html :: div.userWelcome"></div>
-<br>
-<div align="center" th:replace="fragment/general.html :: div.userLogged"></div>
-<br>
-<div align="center">
-    <h3>Tutaj jest info o Task-ach!</h3>
-    <p>Create task:</p>
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTaskAll"></div>
+        <div th:replace="fragment/general.html :: div.tileUser"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        <form th:action="@{/task/taskAdd}" th:object="${task}" method="post">
+            <table align="center">
+                <tr>
+                    <td align="right">New Task Name:</td>
+                    <td align="left"><input type="text" th:field="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Dead line:</td>
+                    <td align="left"><input type="text" th:field="*{dateDeadLine}" placeholder="format: yyyy-MM-dd"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Status:</td>
+                    <td align="left">
+                        <select name="status" id="selectAddTask">
+                            <option th:value="NotStarted" th:text="NotStarted"></option>
+                            <option th:value="InProgress" th:text="InProgress"></option>
+                            <option th:value="Completed" th:text="Completed"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="left">
+                        <button type="submit" class="inputButton">Create Task!</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
 </div>
-<form th:action="@{/task/taskAdd}" th:object="${task}" method="post">
-    <table align="center">
-        <tr>
-            <td>New Task Name:</td>
-            <td><input type="text" th:field="*{name}"/></td>
-        </tr>
-        <tr>
-            <td>Dead line:</td>
-            <td><input type="text" th:field="*{dateDeadLine}" placeholder="format: yyyy-MM-dd"/></td>
-        </tr>
-        <tr>
-            <td>Status:</td>
-            <td>
-                <select name="status">
-                    <option th:value="NotStarted" th:text="NotStarted"></option>
-                    <option th:value="InProgress" th:text="InProgress"></option>
-                    <option th:value="Completed" th:text="Completed"></option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button type="submit">Create Task!</button>
-            </td>
-        </tr>
-    </table>
-</form>
 </body>
 </html>

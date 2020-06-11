@@ -5,30 +5,39 @@
 <head>
     <meta charset="UTF-8">
     <title>ListTuDu - User/add</title>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\user.css" rel="stylesheet" type="text/css"/>
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
-<br>
-<div th:replace="fragment/general.html :: div.userLogged"></div>
-<br>
-<br>
-<p>Add user:</p>
-<form th:action="@{/user/userAdd}" th:object="${user}" method="post">
-    <table>
-        <tr>
-            <td>User Name (email only):</td>
-            <td><input type="text" th:field="*{email}" value="example@example.com"/></td>
-        </tr>
-        <tr>
-            <td>Pass:</td>
-            <td><input type="password" th:field="*{pass}" value="example"/></td>
-        </tr>
-        <tr>
-            <td>
-                <button type="submit">Create User!</button>
-            </td>
-        </tr>
-    </table>
-</form>
+<body>
+<div id="container">
+    <div class="rectangle">
+        <div th:replace="fragment/general.html :: div.userWelcome"></div>
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTask"></div>
+        <div th:replace="fragment/general.html :: div.tileUserAll"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        <form th:action="@{/user/userAdd}" th:object="${user}" method="post">
+            <div class="square1200px">User Name (email only):</div>
+            <div class="square1200px"><input type="text" th:field="*{email}" value="example@example.com"/></div>
+            <div class="square1200px"><br></div>
+            <div class="square1200px">Pass:</div>
+            <div class="square1200px"><input type="password" th:field="*{pass}" value="example"/></div>
+            <div class="square1200px"><br></div>
+            <div class="square1200px">
+                <button type="submit" class="inputButton">Create User!</button>
+            </div>
+        </form>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

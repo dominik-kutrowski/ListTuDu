@@ -4,23 +4,38 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\registration.css" rel="stylesheet"
+          type="text/css"/>
     <title>ListTuDu - Login</title>
 </head>
 
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
 
-<form th:action="@{/login}" method="post">
-    Login:<br>
-    <input type="text" name="username"/><br>
-    <br>
-    Password:<br>
-    <input type="password" name="password"/><br>
-    <br>
-    <button type="submit">Login Me</button>
-</form>
-
-<p>or <a th:href="@{/registration}">create</a> your account.</p>
-<p>Click <a th:href="@{/home}">here</a> to see a home page.</p>
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileHomePage"></div>
+        <div th:replace="fragment/general.html :: div.tileRegistration"></div>
+    </div>
+    <div class="square1200px">
+        <form th:action="@{/login}" method="post">
+            Login:<br>
+            <input type="text" name="username"/><br>
+            <br>
+            Password:<br>
+            <input type="password" name="password"/><br>
+            <br>
+            <button type="submit" class="inputButton">Login Me</button>
+        </form>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

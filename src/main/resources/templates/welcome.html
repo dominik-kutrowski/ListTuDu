@@ -4,11 +4,31 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ListTuDu - Welcome</title>
-    <link rel="stylesheet" type="text/css" href="css/logInOut.css">
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\registration.css" rel="stylesheet"
+          type="text/css"/>
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
-<br>
-<div th:replace="fragment/general.html :: div.userLogged"></div>
+<body>
+<div id="container">
+    <div class="rectangle">
+        <div th:replace="fragment/general.html :: div.userWelcome"></div>
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTask"></div>
+        <div th:replace="fragment/general.html :: div.tileUser"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        reklama!
+        albo coś innego!!
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

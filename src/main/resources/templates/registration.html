@@ -4,30 +4,44 @@
       xmlns:th="https://www.thymeleaf.org"
 >
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\registration.css" rel="stylesheet"
+          type="text/css"/>
     <title>ListTuDu - Registration</title>
-    <link rel="stylesheet" type="text/css" href="css/registration.css">
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
+<body>
 
-<form action="#" th:action="@{/registration}" method="post" align="center">
-    Login:<br>
-    <input type="text" name="email" placeholder="Email"/><br>
-    <label class="registrationPage" th:text="${registrationLoginError} ? ${registrationLoginError}"></label><br>
-    <br>
-    Password:<br>
-    <input type="password" name="pass" placeholder="Password"/><br>
-    <label class="registrationPage" th:text="${registrationPasswordError} ? ${registrationPasswordError}"></label><br>
-    <br>
-    Repeat Password:<br>
-    <input type="password" name="repeatPass" placeholder="Repeat Password"/> <br>
-    <label class="registrationPage" th:text="${registrationPasswordRepeatError} ? ${registrationPasswordRepeatError}"></label><br>
-    <br>
-    <button type="submit">Register Me</button>
-</form>
-
-<p >or <a th:href="@{/login}">login</a> yourself.</p>
-<p >Click <a th:href="@{/home}">here</a> to back a home page.</p>
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileHomePage"></div>
+        <div th:replace="fragment/general.html :: div.tileLogin"></div>
+    </div>
+    <div class="square1200px">
+        <form action="#" th:action="@{/registration}" method="post">
+            Login:<br>
+            <input type="text" name="email" placeholder="Email"/><br>
+            <label class="registrationPage" th:text="${registrationLoginError} ? ${registrationLoginError}"></label><br>
+            Password:<br>
+            <input type="password" name="pass" placeholder="Password"/><br>
+            <label class="registrationPage"
+                   th:text="${registrationPasswordError} ? ${registrationPasswordError}"></label><br>
+            Repeat Password:<br>
+            <input type="password" name="repeatPass" placeholder="Repeat Password"/> <br>
+            <label class="registrationPage"
+                   th:text="${registrationPasswordRepeatError} ? ${registrationPasswordRepeatError}"></label><br>
+            <button type="submit" class="inputButton">Register Me</button>
+        </form>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

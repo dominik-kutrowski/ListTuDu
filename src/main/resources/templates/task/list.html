@@ -4,44 +4,60 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ListTuDu - Task/list</title>
-    <link rel="stylesheet" type="text/css" href="/css/task.css">
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\user.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\task.css" rel="stylesheet"
+          type="text/css"/>
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
-<br>
-<div th:replace="fragment/general.html :: div.userLogged"></div>
-<br>
-<p>Tasks actions:</p>
-<p>Click <a th:href="@{/task/list}">here</a> to show tasks list.</p>
-<p>Click <a th:href="@{/task/taskAdd}">here</a> to add task.</p>
-<br>
-<p>Tasks list below:</p>
-<table>
-    <tr>
-        <th> Id:</th>
-        <th> Delete:</th>
-        <th> Name:</th>
-        <th> Status:</th>
-        <th> Deadline:</th>
-        <th> Created by::</th>
-    </tr>
-    <tr data-th-each="task : ${TaskList}">
-        <td data-th-text="${task.id}+'.'"></td>
-        <td>
-            <a th:href="@{/task}+'/delete/'+${task.id}">
-                <img src="../icons/icon_bin2.jpg" width="26" align="middle"/></a>
-        </td>
-        <td data-th-text="${task.name}"></td>
-        <td data-th-text="${task.status.status}"></td>
-
-        <td th:switch="${task.overdueDeadLineColor(task.dateDeadLine)}">
-            <div th:case="'Red'" class="redHolder" th:text="${task.dateDeadLine}"></div>
-            <div th:case="'Green'" class="greenHolder" th:text="${task.dateDeadLine}"></div>
-            <div th:case="'Black'" class="blueHolder" th:text="${task.dateDeadLine}"></div>
-            <div th:case="'????-??-??'" class="grayHolder">????-??-??</div>
-        </td>
-        <td data-th-text="${task.createdBy}"></td>
-    </tr>
-</table>
+<body>
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTaskAll"></div>
+        <div th:replace="fragment/general.html :: div.tileUser"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        <p>Tasks list below:</p>
+        <div class="taskLine" data-th-each="task : ${TaskList}">
+            <div class="taskID">
+                <p data-th-text="${task.id}+'.'"></p>
+            </div>
+            <div class="taskDelete">
+                <p>
+                    <a th:href="@{/task}+'/delete/'+${task.id}">
+                        <img src="C:\Users\doku\java\ListTuDu\src\main\resources\static\icons\icon_bin2.jpg" width="26"
+                             align="middle" background-color="none"/></a>
+                </p>
+            </div>
+            <div class="taskName">
+                <p data-th-text="${task.name}"></p>
+            </div>
+            <div class="taskStatus">
+                <p data-th-text="${task.status.status}"></p>
+            </div>
+            <div class="taskDeadline" th:switch="${task.overdueDeadLineColor(task.dateDeadLine)}">
+                <p th:case="'Red'" class="redHolder" th:text="${task.dateDeadLine}"></p>
+                <p th:case="'Green'" class="greenHolder" th:text="${task.dateDeadLine}"></p>
+                <p th:case="'Black'" class="blueHolder" th:text="${task.dateDeadLine}"></p>
+                <p th:case="'????-??-??'" class="grayHolder">????-??-??</p>
+            </div>
+            <div class="taskCreatedBy">
+                <p data-th-text="${task.createdBy}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear: both"></div>
+<div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

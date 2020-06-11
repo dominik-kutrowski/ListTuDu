@@ -4,12 +4,21 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ListTuDu - Home</title>
+    <link href="C:/Users/doku/java/ListTuDu/src/main/resources/static/css/general.css" rel="stylesheet" type="text/css">
+<!--    <link href="../static/css/general.css" rel="stylesheet" type="text/css">-->
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
-<h3 th:text="${HomePage}"/>
-<br>
-<p>Click <a th:href="@{/login}">here</a> to see a login page.</p>
-<p>Click <a th:href="@{/registration}">here</a> to see a registration page.</p>
+<body>
+<div id="container">
+    <div class="rectangle">
+        <div th:replace="fragment/general.html :: div.userWelcome"></div>
+    </div>
+    <div class="square1400px" th:insert="fragment/general.html :: div.loginInfo">
+    </div>
+    <div class="square1400px">
+        <p>Click <a th:href="@{/login}">here</a> to see a login page.</p>
+        <p>Click <a th:href="@{/registration}">here</a> to see a registration page.</p>
+    </div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

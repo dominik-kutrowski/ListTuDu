@@ -5,34 +5,57 @@
 <head>
     <meta charset="UTF-8">
     <title>ListTuDu - Task/delete</title>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\user.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\task.css" rel="stylesheet"
+          type="text/css"/>
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
-<br>
-<p>Delete task??</p>
-<table align="center">
-    <tr>
-        <td>Id:</td>
-        <td>Task Name:</td>
-    </tr>
-    <tr>
-        <td th:text="${TaskId}"></td>
-        <td th:text="${TaskDelete.name}"></td>
-    </tr>
-</table>
-<table align="center">
-    <tr>
-        <td>
-            <form th:action="@{/task/delete/}+${TaskId}" method="post">
-                <button type="submit">Delete Task!</button>
-            </form>
-        </td>
-        <td>
-            <form th:action="@{/task/list}" method="get">
-                <button type="submit">Maybe later!</button>
-            </form>
-        </td>
-    </tr>
-</table>
+<body>
+
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTaskAll"></div>
+        <div th:replace="fragment/general.html :: div.tileUser"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        <p>Delete task??</p>
+        <table align="center">
+            <tr>
+                <td>Id:</td>
+                <td>Task Name:</td>
+            </tr>
+            <tr>
+                <td th:text="${TaskId}"></td>
+                <td th:text="${TaskDelete.name}"></td>
+            </tr>
+        </table>
+        <table align="center">
+            <tr  width="50%">
+                <td>
+                    <form th:action="@{/task/delete/}+${TaskId}" method="post">
+                        <button type="submit" class="inputButton">Delete Task!</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/task/list}" method="get">
+                        <button type="submit" class="inputButton">Maybe later!</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

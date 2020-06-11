@@ -6,17 +6,84 @@
     <meta charset="UTF-8"/>
 </head>
 <body>
+<div class="userWelcome">
+    Welcome on ListTuDu!
+</div>
+<div class="loginInfo">
+    <span sec:authorize="isAuthenticated()">login: <span sec:authentication="name"></span></span>
+</div>
 
-<div class="userWelcome" align="center">
-    <h1 >Welcome on ListTuDu!</h1>
-    <h3 sec:authorize="isAuthenticated()">login: <span sec:authentication="name"></span></h3>
-    <h3 sec:authorize="isAnonymous()">Login or Register Yourself</h3>
-</div>
 <div class="userLogged" align="center">
-    <p>Click <a th:href="@{/welcome}">here</a> to see a welcome page.</p>
-    <p>Click <a th:href="@{/logout}">here</a> to logout.</p>
-    <p>Click <a th:href="@{/task}">here</a> to see a tasks list.</p>
-    <p>Click <a th:href="@{/user}">here</a> to see a user info.</p>
+    <p>Click <a th:href="@{/welcome}" class="tilelink">here</a> to see a welcome page.</p>
+    <p>Click <a th:href="@{/logout}" class="tilelink">here</a> to logout.</p>
+    <p>Click <a th:href="@{/task}" class="tilelink">here</a> to see a tasks list.</p>
+    <p>Click <a th:href="@{/user}" class="tilelink">here</a> to see a user info.</p>
 </div>
+
+<div class="tileHomePage">
+    <a th:href="@{/home}" class="tilelink">Home page</a>
+</div>
+<div class="tileLogin">
+    <a th:href="@{/login}" class="tilelink">Login</a>
+</div>
+<div class="tileRegistration">
+    <a th:href="@{/registration}" class="tilelink">Registration</a>
+</div>
+<div class="tileWelcome">
+    <a th:href="@{/welcome}" class="tilelink">Welcome</a>
+</div>
+<div class="tileLogOut">
+    <a th:href="@{/logout}" class="tilelink">Log Out</a>
+</div>
+
+
+<div class="tileUser">
+    <a th:href="@{/user}" class="tilelink">User</a>
+</div>
+<div class="tileUserAddUser">
+    <a th:href="@{/user/userAdd}" class="tilelink">Add</a>
+</div>
+<div class="tileUserChangePass">
+    <a th:href="@{/user/userChangePass}" class="tilelink">Pass</a>
+</div>
+<div class="tileUserEdit">
+    <a class="tilelink">Edit</a>
+</div>
+<div class="tileUserInfo">
+    <a class="tilelink">Info</a>
+</div>
+<div class="tileUserDelete">
+    <a class="tilelink">Delete</a>
+</div>
+
+<div class="tileUserAll">
+    <div th:replace="fragment/general.html :: div.tileUser"></div>
+    <div th:replace="fragment/general.html :: div.tileUserEdit"></div>
+    <div th:replace="fragment/general.html :: div.tileUserChangePass"></div>
+    <div th:replace="fragment/general.html :: div.tileUserInfo"></div>
+    <div th:replace="fragment/general.html :: div.tileUserAddUser"></div>
+    <div th:replace="fragment/general.html :: div.tileUserDelete"></div>
+</div>
+
+<div class="tileTask">
+    <a th:href="@{/task}" class="tilelink">Tasks</a>
+</div>
+<div class="tileTaskAddTask">
+    <a th:href="@{/task/taskAdd}" class="tilelink">Add</a>
+</div>
+<div class="tileTaskList">
+    <a th:href="@{/task/list}" class="tilelink">List</a>
+</div>
+
+<div class="tileTaskAll">
+    <div th:replace="fragment/general.html :: div.tileTask"></div>
+    <div th:replace="fragment/general.html :: div.tileTaskAddTask"></div>
+    <div th:replace="fragment/general.html :: div.tileTaskList"></div>
+</div>
+
+<div class="tileEmpty">
+</div>
+
+<div class="footer"> Prawa wszelakie!</div>
 </body>
 </html>

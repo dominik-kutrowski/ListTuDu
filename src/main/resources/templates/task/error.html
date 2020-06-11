@@ -4,16 +4,32 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>ListTuDu - Task/error</title>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\user.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\task.css" rel="stylesheet"
+          type="text/css"/>
 </head>
-<body align="center">
-<div th:replace="fragment/general.html :: div.userWelcome"></div>
-<br>
-<div th:replace="fragment/general.html :: div.userLogged"></div>
-<br>
-<h3>Ups! something went wrong! Maybe try delete again!</h3>
-<br>
-<p>Tasks actions:</p>
-<p>Click <a th:href="@{/task/list}">here</a> to show tasks list.</p>
-<p>Click <a th:href="@{/task/add}">here</a> to add task.</p>
+<body>
+<div id="container">
+    <div class="rectangle">
+        Welcome on ListTuDu!
+    </div>
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
+    </div>
+    <div class="square200px">
+        <div th:replace="fragment/general.html :: div.tileWelcome"></div>
+        <div th:replace="fragment/general.html :: div.tileTaskAll"></div>
+        <div th:replace="fragment/general.html :: div.tileUser"></div>
+        <div th:replace="fragment/general.html :: div.tileLogOut"></div>
+    </div>
+    <div class="square1200px">
+        <h3 align="center">Ups! something went wrong!<br>Maybe try delete again!</h3>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
+</div>
 </body>
 </html>

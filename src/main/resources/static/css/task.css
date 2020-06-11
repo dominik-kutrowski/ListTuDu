@@ -1,22 +1,123 @@
 
+.tileTaskAddTask
+{
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #777777;
+    margin: 20px;
+    margin-left: 60px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+.tileTaskAddTask:hover
+{
+    background-color: #666666;
+}
+
+.tileTaskList
+{
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #777777;
+    margin: 20px;
+    margin-left: 60px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+.tileTaskList:hover
+{
+    background-color: #666666;
+}
+
+.tileTaskDelete
+{
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #777777;
+    margin: 20px;
+    margin-left: 60px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+.tileTaskList:hover
+{
+    background-color: #666666;
+}
+
+.taskLine
+{
+    width: 1200px;
+    float: left;
+    align: center;
+}
+.taskLine:hover
+{
+    background-color: white;
+}
+
+.taskCreatedBy
+{
+    width: 200px;
+    float: left;
+    text-align: center;
+}
+.taskDeadline
+{
+    width: 170px;
+    float: left;
+    text-align: center;
+}
+.taskStatus
+{
+    width: 150px;
+    float: left;
+    text-align: center;
+}
+.taskName
+{
+    width: 600px;
+    float: left;
+    text-align: center;
+}
+.taskDelete
+{
+    width: 50px;
+    float: left;
+    text-align: center;
+}
+.taskID
+{
+    width: 30px;
+    float: left;
+    text-align: center;
+}
+
+
 
 table {
-  border: 1px solid black;
+    width: 100%;
 }
 
 .blueHolder {
+    text-align: center;
     color:blue;
 }
 .grayHolder {
+    text-align: center;
     color:grey;
 }
 .greenHolder {
+    text-align: center;
     color:green;
 }
 .redHolder {
+    text-align: center;
     color:red;
 }
-
+/*
 #grayHolder {
     color:grey;
 }
@@ -26,3 +127,4 @@ table {
 #redHolder {
     color:red;
 }
+*/

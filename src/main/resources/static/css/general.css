@@ -1,0 +1,247 @@
+body
+{
+    background-color: DimGray;
+    height: 100%;
+}
+
+#container
+{
+    width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginInfo{
+    font-size: 36px;
+    text-align: right;
+}
+
+.rectangle
+{
+    width: 1360px;
+    font-size: 72px;
+    text-align: center;
+    padding: 20px;
+}
+
+.square1400px
+{
+    width: 1360px;
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+}
+.square200px
+{
+    width: 200px;
+    display: table-cell;
+    float: left;
+    text-align: center;
+ }
+
+.square1000px
+{
+    width: 1000px;
+    float: left;
+    align: center;
+}
+.square1200px
+{
+    width: 1200px;
+    float: right;
+    align: center;
+    height: 100%;
+}
+.square600px
+{
+    width: 600px;
+    float: left;
+    align: center;
+}
+
+.footer
+{
+    width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.tileHomePage
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #999999;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileHomePage:hover{
+    background-color: #888888;
+}
+
+.tileLogin
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #999999;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileLogin:hover
+{
+    background-color: #888888;
+}
+
+.tileUser
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #999999;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileUser:hover
+{
+    background-color: #888888;
+}
+
+.tileTask
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #999999;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileTask:hover
+{
+    background-color: #888888;
+}
+
+.tileWelcome
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #E3AF34;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileWelcome:hover
+{
+    background-color: #D29E23;
+}
+
+.tileLogOut
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #CDEBA7;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileLogOut:hover
+{
+    background-color: #BCD796;
+}
+
+.tileRegistration
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: Indigo;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.tileRegistration:hover
+{
+    background-color: #3A0071;
+}
+
+.tileEmpty
+{
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+    margin: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+a.tilelink
+{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.tilelink2
+{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    width: 160px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+
+.inputButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 250px;
+    cursor: pointer;
+    margin: 5px;
+}
+.inputButton:hover {
+    background-color: #3b9e40;
+}
+
+
+
+input {
+    width: 50%;
+    align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    font-size:18px;
+}
+
+
+#selectAddTask
+{
+    width: 50%;
+    align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    font-size:18px;
+}
