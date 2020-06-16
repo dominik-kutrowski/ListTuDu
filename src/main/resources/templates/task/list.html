@@ -27,37 +27,50 @@
     </div>
     <div class="square1200px">
         <p>Tasks list below:</p>
-        <div class="taskLine" data-th-each="task : ${TaskList}">
-            <div class="taskID">
-                <p data-th-text="${task.id}+'.'"></p>
-            </div>
-            <div class="taskDelete">
-                <p>
-                    <a th:href="@{/task}+'/delete/'+${task.id}">
-                        <img src="C:\Users\doku\java\ListTuDu\src\main\resources\static\icons\icon_bin2.jpg" width="26"
-                             align="middle" background-color="none"/></a>
-                </p>
-            </div>
-            <div class="taskName">
-                <p data-th-text="${task.name}"></p>
-            </div>
-            <div class="taskStatus">
-                <p data-th-text="${task.status.status}"></p>
-            </div>
-            <div class="taskDeadline" th:switch="${task.overdueDeadLineColor(task.dateDeadLine)}">
-                <p th:case="'Red'" class="redHolder" th:text="${task.dateDeadLine}"></p>
-                <p th:case="'Green'" class="greenHolder" th:text="${task.dateDeadLine}"></p>
-                <p th:case="'Black'" class="blueHolder" th:text="${task.dateDeadLine}"></p>
-                <p th:case="'????-??-??'" class="grayHolder">????-??-??</p>
-            </div>
-            <div class="taskCreatedBy">
-                <p data-th-text="${task.createdBy}"></p>
-            </div>
+        <div class="taskLineHead">
+            <div class="taskID">id.</div>
+            <div class="taskName">name</div>
+            <div class="taskStatus">status</div>
+            <div class="taskDeadline">deadline</div>
+            <div class="taskCreatedBy">created by</div>
+            <div class="taskDeleteHead">del</div>
+            <div style="clear: both"></div>
         </div>
+
+        <div class="linkProperties" data-th-each="task : ${TaskList}">
+            <a th:href="@{/task}+'/edit/'+${task.id}">
+                <div class="taskLine">
+                    <div class="taskID">
+                        <p data-th-text="${task.id}+'.'"></p>
+                    </div>
+                    <div class="taskName">
+                        <p data-th-text="${task.name}"></p>
+                    </div>
+                    <div class="taskStatus">
+                        <p data-th-text="${task.status.status}"></p>
+                    </div>
+                    <div class="taskDeadline" th:switch="${task.overdueDeadLineColor(task.dateDeadLine)}">
+                        <p th:case="'Red'" class="redHolder" th:text="${task.dateDeadLine}"></p>
+                        <p th:case="'Green'" class="greenHolder" th:text="${task.dateDeadLine}"></p>
+                        <p th:case="'Black'" class="blueHolder" th:text="${task.dateDeadLine}"></p>
+                        <p th:case="'????-??-??'" class="grayHolder">????-??-??</p>
+                    </div>
+                    <div class="taskCreatedBy">
+                        <p data-th-text="${task.createdBy}"></p>
+                    </div>
+                </div>
+            </a>
+            <div class="linkProperties" >
+                <div class="taskDelete">
+                    <a th:href="@{/task}+'/delete/'+${task.id}">&times; </a>
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
     </div>
-</div>
-<div style="clear: both"></div>
-<div th:replace="fragment/general.html :: div.footer"></div>
+    <div style="clear: both"></div>
+    <div th:replace="fragment/general.html :: div.footer"></div>
 </div>
 </body>
 </html>

@@ -47,15 +47,38 @@
     background-color: #666666;
 }
 
-.taskLine
+.taskLineHead
 {
     width: 1200px;
+    height: 50px;
     float: left;
     align: center;
+    font-color: black;
+    color: #111111;
+    text-decoration: none;
+    display: block;
+}
+.taskLine
+{
+    width: 1150px;
+    height: 100px;
+    float: left;
+    align: center;
+    font-color: black;
+    color: #111111;
+    text-decoration: none;
+    display: block;
+}
+.taskLine:visited
+{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    font-color: black;
 }
 .taskLine:hover
 {
-    background-color: white;
+    background-color: #888888;
 }
 
 .taskCreatedBy
@@ -82,12 +105,41 @@
     float: left;
     text-align: center;
 }
+.taskDeleteHead
+{
+    width: 50px;
+    height: 500px;
+    float: left;
+    text-align: center;
+    font-color: black;
+    color: #111111;
+    display: block;
+    text-decoration: none;
+}
 .taskDelete
 {
     width: 50px;
+    height: 100px;
     float: left;
     text-align: center;
+    font-color: black;
+    color: #111111;
+    display: block;
+    text-decoration: none;
 }
+.taskDelete:hover
+{
+    background-color: red;
+    font-color: white;
+}
+.taskDelete:visited
+{
+    text-decoration: none;
+    display: block;
+    font-color: black;
+}
+
+
 .taskID
 {
     width: 30px;

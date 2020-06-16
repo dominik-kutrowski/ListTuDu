@@ -31,26 +31,28 @@ body
     text-align: center;
     padding: 20px;
 }
-.square200px
-{
-    width: 200px;
-    display: table-cell;
-    float: left;
-    text-align: center;
- }
-
-.square1000px
-{
-    width: 1000px;
-    float: left;
-    align: center;
-}
 .square1200px
 {
     width: 1200px;
-    float: right;
+    float: left;
     align: center;
     height: 100%;
+}
+.square1000px
+{
+    width: 960px;
+    float: left;
+    align: left;
+    text-align: left;
+    padding: 20px;
+}
+.square900px
+{
+    width: 900px;
+    float: left;
+    align: left;
+    background-color: white;
+    text-align: left;
 }
 .square600px
 {
@@ -58,6 +60,28 @@ body
     float: left;
     align: center;
 }
+.square200px
+{
+    width: 200px;
+    display: table-cell;
+    float: left;
+    text-align: center;
+ }
+.square200pxRight
+{
+    width: 160px;
+    display: table-cell;
+    float: left;
+    text-align: right;
+    padding: 20px;
+ }
+.square100px
+{
+    width: 100px;
+    display: table-cell;
+    float: left;
+    text-align: center;
+ }
 
 .footer
 {

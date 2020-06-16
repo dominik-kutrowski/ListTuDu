@@ -29,6 +29,17 @@ public class ControllerTask {
         return "redirect:/task/list";
     }
 
+    @GetMapping(value = {"task/edit/{id}"})
+    public String taskPageEdit(Model modelTaskList, @PathVariable Long id) {
+        try {
+            modelTaskList.addAttribute("TaskEdit", taskRepository.findById(id).get());
+            modelTaskList.addAttribute("TaskId", id);
+            return "task/edit";
+        } catch (Exception e) {
+            return "redirect:/task/error";
+        }
+    }
+
     @GetMapping(value = {"task/delete/{id}"})
     public String taskPageDeleteQuestion(Model modelTaskDelete, @PathVariable Long id) {
         try {
