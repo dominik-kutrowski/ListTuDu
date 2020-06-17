@@ -28,31 +28,42 @@
         <div th:replace="fragment/general.html :: div.tileLogOut"></div>
     </div>
     <div class="square1200px">
-        <p>Delete task??</p>
-        <table align="center">
-            <tr>
-                <td>Id:</td>
-                <td>Task Name:</td>
-            </tr>
-            <tr>
-                <td th:text="${TaskId}"></td>
-                <td th:text="${TaskDelete.name}"></td>
-            </tr>
-        </table>
-        <table align="center">
-            <tr  width="50%">
-                <td>
-                    <form th:action="@{/task/delete/}+${TaskId}" method="post">
-                        <button type="submit" class="inputButton">Delete Task!</button>
-                    </form>
-                </td>
-                <td>
-                    <form th:action="@{/task/list}" method="get">
-                        <button type="submit" class="inputButton">Maybe later!</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
+        <div class="square200pxRight"></div>
+        <div class="square1000px">Delete task??</div>
+        <div style="clear: both"></div>
+
+        <div class="square200pxRight">name:</div>
+        <div class="square1000px"><span th:text="${TaskDelete.name}"></span></div>
+        <div style="clear: both"></div>
+
+        <div class="square200pxRight">status:</div>
+        <div class="square1000px"><span th:text="${TaskDelete.status.status}"></span></div>
+        <div style="clear: both"></div>
+
+        <div class="square200pxRight">deadline:</div>
+        <div class="square1000px" th:switch="${TaskDelete.overdueDeadLineColor(TaskDelete.dateDeadLine)}">
+            <span th:case="'Red'" class="redHolder" th:text="${TaskDelete.dateDeadLine}"></span>
+            <span th:case="'Green'" class="greenHolder" th:text="${TaskDelete.dateDeadLine}"></span>
+            <span th:case="'Black'" class="blueHolder" th:text="${TaskDelete.dateDeadLine}"></span>
+            <span th:case="'????-??-??'" class="grayHolder">????-??-??</span>
+        </div>
+        <div style="clear: both"></div>
+
+        <div class="square200pxRight">created by:</div>
+        <div class="square1000px"><span th:text="${TaskDelete.createdBy}"></span></div>
+        <div style="clear: both"></div>
+
+        <div class="square600px">
+            <form th:action="@{/task/delete/}+${TaskId}" method="post">
+                <button type="submit" class="inputButton">Delete Task!</button>
+            </form>
+        </div>
+        <div class="square600px">
+            <form th:action="@{/task/list}" method="get">
+                <button type="submit" class="inputButton">Maybe later!</button>
+            </form>
+        </div>
+        <div style="clear: both"></div>
     </div>
     <div style="clear: both"></div>
     <div th:replace="fragment/general.html :: div.footer"></div>

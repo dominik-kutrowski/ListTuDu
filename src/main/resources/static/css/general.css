@@ -216,15 +216,43 @@ a.tilelink
     border-radius: 5px;
 }
 
-.tilelink2
+.linkProperties
+{
+    font-color: black;
+    color: #111111;
+    text-decoration: none;
+    display: block;
+}
+.linkProperties:visited
 {
     color: #ffffff;
     text-decoration: none;
     display: block;
-    width: 160px;
-    height: 60px;
-    border-radius: 5px;
+    font-color: black;
 }
+
+.taskLine
+{
+    float: left;
+    align: center;
+    font-color: black;
+    color: #111111;
+    text-decoration: none;
+    display: block;
+}
+.taskLine:visited
+{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    font-color: black;
+}
+.taskLine:hover
+{
+    background-color: #888888;
+}
+
+
 
 
 .inputButton {
