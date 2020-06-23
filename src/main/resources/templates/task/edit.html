@@ -26,34 +26,65 @@
         <div th:replace="fragment/general.html :: div.tileUser"></div>
         <div th:replace="fragment/general.html :: div.tileLogOut"></div>
     </div>
+
     <span class="square1200px">
-        <div class="square200pxRight"></div>
-        <div class="square1000px">edit task:</div>
-        <div style="clear: both"></div>
+        <form th:action="@{/task/edit/}+${TaskId}" th:object="${task}" method="post">
+            <div class="square200pxRight"></div>
+            <div class="square1000px">edit task:</div>
+            <div style="clear: both"></div>
 
-        <div class="square200pxRight">Id:</div>
-        <div class="square1000px"><span th:text="${TaskId}"></span></div>
-        <div style="clear: both"></div>
+            <div class="square200pxRight">Id:</div>
+            <div class="square1000px">
+                <span th:text="${TaskId}"></span>
+                <input type="hidden" name="id" th:value="${taskBeforeEdit.id}"/>
+            </div>
+            <div style="clear: both"></div>
 
-        <div class="square200pxRight">name:</div>
-        <div class="square1000px"><span th:text="${TaskEdit.name}"></span></div>
-        <div style="clear: both"></div>
+            <div class="square200pxRight">name:</div>
+            <div class="square1000px">
+                <span th:text="${taskBeforeEdit.name}"></span>
+                <input type="hidden" name="name" th:value="${taskBeforeEdit.name}"/>
+            </div>
+            <div style="clear: both"></div>
 
-        <div class="square200pxRight">status:</div>
-        <div class="square1000px"><span th:text="${TaskEdit.status.status}"></span></div>
-        <div style="clear: both"></div>
+            <div class="square200pxRight">status:</div>
+            <div class="square1000px">
+                <span th:text="${taskBeforeEdit.status.status}"></span>
+                <input type="hidden" name="status" th:value="${taskBeforeEdit.status}"/>
+            </div>
+            <div style="clear: both"></div>
 
-        <div class="square200pxRight">deadline:</div>
-        <div class="square1000px" th:switch="${TaskEdit.overdueDeadLineColor(TaskEdit.dateDeadLine)}">
-            <span th:case="'Red'" class="redHolder" th:text="${TaskEdit.dateDeadLine}"></span>
-            <span th:case="'Green'" class="greenHolder" th:text="${TaskEdit.dateDeadLine}"></span>
-            <span th:case="'Black'" class="blueHolder" th:text="${TaskEdit.dateDeadLine}"></span>
-            <span th:case="'????-??-??'" class="grayHolder">????-??-??</span>
+            <div class="square200pxRightEditTask">deadline:</div>
+            <div class="square1000px" >
+                <input type="text" name="dateDeadLine" th:value="${taskBeforeEdit.dateDeadLine}" placeholder="format: yyyy-MM-dd">
+            </div>
+<!--            <div class="square1000px" th:switch="${TaskEdit.overdueDeadLineColor(TaskEdit.dateDeadLine)}">-->
+<!--                <span th:case="'Red'" class="redHolder" th:text="${TaskEdit.dateDeadLine}"></span>-->
+<!--                <span th:case="'Green'" class="greenHolder" th:text="${TaskEdit.dateDeadLine}"></span>-->
+<!--                <span th:case="'Black'" class="blueHolder" th:text="${TaskEdit.dateDeadLine}"></span>-->
+<!--                <span th:case="'????-??-??'" class="grayHolder">????-??-??</span>-->
+
+<!--&lt;!&ndash;                <input type="hidden" name="dateDeadLine" th:value="${TaskEdit.dateDeadLine}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="text" th:field="*{name}"/>&ndash;&gt;-->
+<!--            </div>-->
+            <div style="clear: both"></div>
+
+            <div class="square200pxRight">created by:</div>
+            <div class="square1000px">
+                <span th:text="${taskBeforeEdit.createdBy}"></span>
+                <input type="hidden" name="createdBy" th:value="${taskBeforeEdit.createdBy}"/>
+            </div>
+            <div style="clear: both"></div>
+
+            <div class="square600px">
+                    <button type="submit" class="inputButton">Update Task!</button>
+            </div>
+        </form>
+        <div class="square600px">
+            <form th:action="@{/task/list}" method="get">
+                <button type="submit" class="inputButton">Maybe later!</button>
+            </form>
         </div>
-        <div style="clear: both"></div>
-
-        <div class="square200pxRight">created by:</div>
-        <div class="square1000px"><span th:text="${TaskEdit.createdBy}"></span></div>
         <div style="clear: both"></div>
 </div>
 <div style="clear: both"></div>

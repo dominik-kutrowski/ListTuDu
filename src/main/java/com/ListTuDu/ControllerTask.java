@@ -23,16 +23,41 @@ public class ControllerTask {
         return "task/task";
     }
 
-    @PostMapping(value = {"task/delete/{id}"})
-    public String taskPageDelete(@PathVariable Long id) {
-        taskRepository.deleteById(id);
-        return "redirect:/task/list";
+    //    @PostMapping(value = "task/edit")
+    @PostMapping(value = "task/edit/{id}")
+    public String taskPageEditQuarry(Model modelTaskList,
+                                     @Valid Task taskAfterEdit,
+                                     BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Long id = taskAfterEdit.getId();
+            modelTaskList.addAttribute("taskBeforeEdit", id);
+            modelTaskList.addAttribute("TaskId", id);
+            return "redirect:/task/edit/{id}";
+        }
+
+        Task taskBeforeEdit = taskRepository.findAllById(taskAfterEdit.getId());
+        if(taskBeforeEdit.getDateDeadLine()==null){
+            if(taskAfterEdit.getDateDeadLine()==null){
+                Long id = taskAfterEdit.getId();
+                modelTaskList.addAttribute("taskBeforeEdit", id);
+                modelTaskList.addAttribute("TaskId", id);
+                return "redirect:/task/edit/{id}";
+            }
+            taskRepository.updateByDateDeadLineWhereId(taskAfterEdit.getDateDeadLine(), taskAfterEdit.getId());
+            return "redirect:/task/list";
+        }
+        if (taskBeforeEdit.getDateDeadLine().equals(taskAfterEdit.getDateDeadLine())) {
+            return "redirect:/task/list";
+        } else {
+            taskRepository.updateByDateDeadLineWhereId(taskAfterEdit.getDateDeadLine(), taskAfterEdit.getId());
+            return "redirect:/task/list";
+        }
     }
 
     @GetMapping(value = {"task/edit/{id}"})
     public String taskPageEdit(Model modelTaskList, @PathVariable Long id) {
         try {
-            modelTaskList.addAttribute("TaskEdit", taskRepository.findById(id).get());
+            modelTaskList.addAttribute("taskBeforeEdit", taskRepository.findById(id).get());
             modelTaskList.addAttribute("TaskId", id);
             return "task/edit";
         } catch (Exception e) {
@@ -47,9 +72,14 @@ public class ControllerTask {
             modelTaskDelete.addAttribute("TaskId", id);
             return "task/delete";
         } catch (Exception e) {
-            //return "task/error";
             return "redirect:/task/error";
         }
+    }
+
+    @PostMapping(value = {"task/delete/{id}"})
+    public String taskPageDelete(@PathVariable Long id) {
+        taskRepository.deleteById(id);
+        return "redirect:/task/list";
     }
 
     @PostMapping(value = "task/taskAdd")
