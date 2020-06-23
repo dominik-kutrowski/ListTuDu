@@ -28,34 +28,43 @@
     </div>
     <div class="square1200px">
         <form th:action="@{/task/taskAdd}" th:object="${task}" method="post">
-            <table align="center">
-                <tr>
-                    <td align="right">New Task Name:</td>
-                    <td align="left"><input type="text" th:field="*{name}"/></td>
-                </tr>
-                <tr>
-                    <td align="right">Dead line:</td>
-                    <td align="left"><input type="text" th:field="*{dateDeadLine}" placeholder="format: yyyy-MM-dd"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">Status:</td>
-                    <td align="left">
-                        <select name="status" id="selectAddTask">
-                            <option th:value="NotStarted" th:text="NotStarted"></option>
-                            <option th:value="InProgress" th:text="InProgress"></option>
-                            <option th:value="Completed" th:text="Completed"></option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td align="left">
-                        <button type="submit" class="inputButton">Create Task!</button>
-                    </td>
-                </tr>
-            </table>
+            <div class="square200pxRight"></div>
+            <div class="square1000px">new task:</div>
+            <div style="clear: both"></div>
+
+            <div class="square200pxRight">Task name:</div>
+            <div class="square1000px">
+                <span th:text="${TaskId}"></span>
+                <input type="text" name="name" th:value="${name}"/>
+            </div>
+            <div style="clear: both"></div>
+
+            <div class="square200pxRight">Deadline:</div>
+            <div class="square1000px">
+                <span th:text="${TaskId}"></span>
+                <input type="text" name="dateDeadLine" th:value="${dateDeadLine}" placeholder="format: yyyy-MM-dd"/>
+            </div>
+            <div style="clear: both"></div>
+
+            <div class="square200pxRight">Status:</div>
+            <div class="square1000px">
+                <select name="status" id="selectAddTask">
+                    <option th:value="NotStarted" th:text="NotStarted"></option>
+                    <option th:value="InProgress" th:text="InProgress"></option>
+                    <option th:value="Completed" th:text="Completed"></option>
+                </select>
+            </div>
+
+            <div class="square600px">
+                <button type="submit" class="inputButton">Create Task!</button>
+            </div>
         </form>
+        <div class="square600px">
+            <form th:action="@{/task/list}" method="get">
+                <button type="submit" class="inputButton">Maybe later!</button>
+            </form>
+        </div>
+        <div style="clear: both"></div>
     </div>
     <div style="clear: both"></div>
     <div th:replace="fragment/general.html :: div.footer"></div>
