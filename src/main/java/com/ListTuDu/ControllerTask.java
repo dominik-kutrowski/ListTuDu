@@ -23,11 +23,11 @@ public class ControllerTask {
         return "task/task";
     }
 
-    //    @PostMapping(value = "task/edit")
     @PostMapping(value = "task/edit/{id}")
     public String taskPageEditQuarry(Model modelTaskList,
                                      @Valid Task taskAfterEdit,
                                      BindingResult bindingResult) {
+        Integer caseCounter = 0;
         if (bindingResult.hasErrors()) {
             Long id = taskAfterEdit.getId();
             modelTaskList.addAttribute("taskBeforeEdit", id);
@@ -36,22 +36,37 @@ public class ControllerTask {
         }
 
         Task taskBeforeEdit = taskRepository.findAllById(taskAfterEdit.getId());
-        if(taskBeforeEdit.getDateDeadLine()==null){
-            if(taskAfterEdit.getDateDeadLine()==null){
+        if (taskBeforeEdit.getStatus() != taskAfterEdit.getStatus()) {
+            caseCounter = caseCounter + 1;
+        }
+
+        if (taskBeforeEdit.getDateDeadLine() == null) {
+            if (taskAfterEdit.getDateDeadLine() == null) {
+            } else caseCounter = caseCounter + 2;
+        } else {
+            if (taskBeforeEdit.getDateDeadLine().equals(taskAfterEdit.getDateDeadLine())) {
+            } else caseCounter = caseCounter + 2;
+        }
+
+        switch (caseCounter) {
+            case 0:
                 Long id = taskAfterEdit.getId();
                 modelTaskList.addAttribute("taskBeforeEdit", id);
                 modelTaskList.addAttribute("TaskId", id);
                 return "redirect:/task/edit/{id}";
-            }
-            taskRepository.updateByDateDeadLineWhereId(taskAfterEdit.getDateDeadLine(), taskAfterEdit.getId());
-            return "redirect:/task/list";
+            case 1:
+                taskRepository.updateByStatusWhereId(taskAfterEdit.getStatus(), taskAfterEdit.getId());
+                break;
+            case 2:
+                taskRepository.updateByDateDeadLineWhereId(taskAfterEdit.getDateDeadLine(), taskAfterEdit.getId());
+                break;
+            case 3:
+                taskRepository.updateByStatusAndDateDeadLineWhereId(taskAfterEdit.getStatus(), taskAfterEdit.getDateDeadLine(), taskAfterEdit.getId());
+                break;
+            default:
+                return "redirect:/task/list";
         }
-        if (taskBeforeEdit.getDateDeadLine().equals(taskAfterEdit.getDateDeadLine())) {
-            return "redirect:/task/list";
-        } else {
-            taskRepository.updateByDateDeadLineWhereId(taskAfterEdit.getDateDeadLine(), taskAfterEdit.getId());
-            return "redirect:/task/list";
-        }
+        return "redirect:/task/list";
     }
 
     @GetMapping(value = {"task/edit/{id}"})
@@ -59,6 +74,7 @@ public class ControllerTask {
         try {
             modelTaskList.addAttribute("taskBeforeEdit", taskRepository.findById(id).get());
             modelTaskList.addAttribute("TaskId", id);
+            modelTaskList.addAttribute("TaskStatus", taskRepository.findStatusById(id));
             return "task/edit";
         } catch (Exception e) {
             return "redirect:/task/error";

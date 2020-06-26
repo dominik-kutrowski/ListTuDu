@@ -49,8 +49,11 @@
 
             <div class="square200pxRight">status:</div>
             <div class="square1000px">
-                <span th:text="${taskBeforeEdit.status.status}"></span>
-                <input type="hidden" name="status" th:value="${taskBeforeEdit.status}"/>
+                <select name="status" id="selectAddTask">
+                    <option th:value="NotStarted" th:text="NotStarted" th:selected="${taskBeforeEdit.status.getStatus()=='Not Started'} ? true : false"></option>
+                    <option th:value="InProgress" th:text="InProgress" th:selected="${taskBeforeEdit.status.getStatus()=='In Progress'} ? true : false"></option>
+                    <option th:value="Completed" th:text="Completed" th:selected="${taskBeforeEdit.status.getStatus()=='Completed'} ? true : false"></option>
+                </select>
             </div>
             <div style="clear: both"></div>
 
