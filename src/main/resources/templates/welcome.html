@@ -8,8 +8,9 @@
           type="text/css"/>
     <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\registration.css" rel="stylesheet"
           type="text/css"/>
+    <script type="text/javascript" src="C:\Users\doku\java\ListTuDu\src\main\resources\static\js\clock.js"></script>
 </head>
-<body>
+<body onload="clock()">
 <div id="container">
     <div class="rectangle">
         <div th:replace="fragment/general.html :: div.userWelcome"></div>
@@ -17,6 +18,7 @@
     <div class="square1400px">
         <div th:replace="fragment/general.html :: div.loginInfo"></div>
     </div>
+
     <div class="square200px">
         <div th:replace="fragment/general.html :: div.tileWelcome"></div>
         <div th:replace="fragment/general.html :: div.tileTask"></div>

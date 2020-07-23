@@ -5,15 +5,17 @@
 <head>
     <title>ListTuDu - Home</title>
     <link href="C:/Users/doku/java/ListTuDu/src/main/resources/static/css/general.css" rel="stylesheet" type="text/css">
-<!--    <link href="../static/css/general.css" rel="stylesheet" type="text/css">-->
+    <script type="text/javascript" src="C:\Users\doku\java\ListTuDu\src\main\resources\static\js\clock.js"></script>
 </head>
-<body>
+<body onload="clock()">
 <div id="container">
     <div class="rectangle">
         <div th:replace="fragment/general.html :: div.userWelcome"></div>
     </div>
-    <div class="square1400px" th:insert="fragment/general.html :: div.loginInfo">
+    <div class="square1400px">
+        <div th:replace="fragment/general.html :: div.loginInfo"></div>
     </div>
+
     <div class="square1400px">
         <p>Click <a th:href="@{/login}">here</a> to see a login page.</p>
         <p>Click <a th:href="@{/registration}">here</a> to see a registration page.</p>

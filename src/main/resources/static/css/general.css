@@ -44,14 +44,21 @@ body
     float: left;
     align: left;
     text-align: left;
-    padding: 20px;
+    padding: 10px;
+}
+.square1000pxRight
+{
+    width: 960px;
+    float: left;
+    align: left;
+    text-align: right;
+    padding: 10px;
 }
 .square900px
 {
     width: 900px;
     float: left;
     align: left;
-    background-color: white;
     text-align: left;
 }
 .square600px
@@ -60,6 +67,14 @@ body
     float: left;
     align: center;
 }
+.square400px
+{
+    width: 360px;
+    display: table-cell;
+    float: left;
+    text-align: center;
+    padding: 10px;
+ }
 .square200px
 {
     width: 200px;
@@ -304,4 +319,8 @@ input {
     border: 2px solid #ccc;
     box-sizing: border-box;
     font-size:18px;
+}
+
+#clock{
+    font-size: 36px;
 }

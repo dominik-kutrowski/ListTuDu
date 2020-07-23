@@ -4,21 +4,22 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
+    <title>ListTuDu - Login</title>
     <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\general.css" rel="stylesheet"
           type="text/css"/>
     <link href="C:\Users\doku\java\ListTuDu\src\main\resources\static\css\registration.css" rel="stylesheet"
           type="text/css"/>
-    <title>ListTuDu - Login</title>
+    <script type="text/javascript" src="C:\Users\doku\java\ListTuDu\src\main\resources\static\js\clock.js"></script>
 </head>
-
-
+<body onload="clock()">
 <div id="container">
     <div class="rectangle">
-        Welcome on ListTuDu!
+        <div th:replace="fragment/general.html :: div.userWelcome"></div>
     </div>
     <div class="square1400px">
         <div th:replace="fragment/general.html :: div.loginInfo"></div>
     </div>
+
     <div class="square200px">
         <div th:replace="fragment/general.html :: div.tileHomePage"></div>
         <div th:replace="fragment/general.html :: div.tileRegistration"></div>
